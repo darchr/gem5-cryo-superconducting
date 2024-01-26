@@ -61,11 +61,12 @@ here = Path(__file__).parent
 sys.path.append(str(here.parent))
 
 from components.cryocore.cryocore import CryoProcessor
+from components.cryocache.cryocache import CryoCache
 
 
 requires(isa_required=ISA.RISCV)
 
-cache_hierarchy = NoCache()
+cache_hierarchy = CryoCache()
 
 memory = SingleChannelDDR3_1600(size="32MB")
 
