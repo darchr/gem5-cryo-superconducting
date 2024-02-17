@@ -75,14 +75,6 @@
                     "ft",
                     "se"
                 ]
-            },
-            {
-                "id": "riscv-matrix-multiply-run",
-                "resource_version": "1.0.0",
-                "input_group": [
-                    "matrix-multiply",
-                    "se"
-                ]
             }
         ],
         "gem5_versions": [
@@ -101,6 +93,20 @@
         ],
         "architecture": "RISCV",
         "license": "Comprised of programs using various licenses"
+    },
+    {
+        "category": "file",
+        "id": "llvm-minisat-cnf-input",
+        "author": ["University of Illinois"],
+        "description": "Input file for llvm-minisat resource",
+        "license":  "Apache 2.0 License with LLVM exceptions",
+        "source_url": "",
+        "tags": ["llvm", "benchmark"],
+        "example_usage": "obtain_resource(\"llvm-minisat-cnf-input\")",
+        "gem5_versions": ["23.1"],
+        "resource_version": "1.0.0",
+        "url": "https://storage.googleapis.com/dist.gem5.org/dist/se_benchmarks/short.cnf",
+        "md5sum": "2fbd08c1250332b506cbc66fff65f48c"
     },
     {
         "category": "binary",
@@ -133,12 +139,12 @@
             "arguments":["-verbosity=0"]
         },
         "resources": {
-            "binay":{
+            "binary":{
                 "id": "riscv-llvm-minisat",
                 "resource_version": "1.0.0"
             },
             "stdin_file":{
-                "id": "llvm-test-input",
+                "id": "llvm-minisat-cnf-input",
                 "resource_version": "1.0.0"
             }
         }
@@ -491,30 +497,5 @@
             "23.1"
         ],
         "example_usage": "obtain_resource(\"riscv-npb-ft-size-s-run\")"
-    },
-    {
-        "category": "workload",
-        "id": "riscv-matrix-multiply-run",
-        "description": "This workload is used to run the riscv matrix multiply binary in SE mode.",
-        "function": "set_se_binary_workload",
-        "resources": {
-            "binary": {
-                "id": "riscv-matrix-multiply",
-                "resource_version": "1.0.0"
-            }
-        },
-        "additional_params": {
-        },
-        "architecture": "RISCV",
-        "size": 0,
-        "tags": [],
-        "license": "",
-        "author": ["Bobby Bruce"],
-        "source_url": "",
-        "resource_version": "1.0.0",
-        "gem5_versions": [
-            "23.1"
-        ],
-        "example_usage": "obtain_resource(\"riscv-matrix-multiply-run\")"
     }
 ]
