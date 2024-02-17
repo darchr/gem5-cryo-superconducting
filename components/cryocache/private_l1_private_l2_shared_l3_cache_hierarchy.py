@@ -169,16 +169,17 @@ class PrivateL1PrivateL2SharedL3CacheHierarchy(
             cpu.connect_icache(self.l1icaches[i].cpu_side)
             cpu.connect_dcache(self.l1dcaches[i].cpu_side)
 
+            # Connect L1 caches to L2 buses
             self.l1icaches[i].mem_side = self.l2buses[i].cpu_side_ports
             self.l1dcaches[i].mem_side = self.l2buses[i].cpu_side_ports
             self.iptw_caches[i].mem_side = self.l2buses[i].cpu_side_ports
             self.dptw_caches[i].mem_side = self.l2buses[i].cpu_side_ports
 
+            # Connect L2 buses to L2 caches
             self.l2buses[i].mem_side_ports = self.l2caches[i].cpu_side
-            self.l3bus.cpu_side_ports = self.l2caches[i].mem_side
-            self.l3bus.mem_side_ports = self.l3cache.cpu_side
 
-            self.membus.cpu_side_ports = self.l3cache.mem_side
+            # Connect L2 caches to L3 bus
+            self.l2caches[i].mem_side = self.l3bus.cpu_side_ports
 
             cpu.connect_walker_ports(
                 self.iptw_caches[i].cpu_side, self.dptw_caches[i].cpu_side
@@ -190,6 +191,12 @@ class PrivateL1PrivateL2SharedL3CacheHierarchy(
                 cpu.connect_interrupt(int_req_port, int_resp_port)
             else:
                 cpu.connect_interrupt()
+        
+        # Connect L3 bus to L3 cache
+        self.l3bus.mem_side_ports = self.l3cache.cpu_side
+
+        # Connect L3 cache to main memory bus
+        self.membus.cpu_side_ports = self.l3cache.mem_side
 
     def _setup_io_cache(self, board: AbstractBoard) -> None:
         """Create a cache for coherent I/O connections"""

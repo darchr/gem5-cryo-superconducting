@@ -32,9 +32,14 @@ from m5.objects import (
     Port,
     Process,
 )
-# from m5.objects.BaseMinorCPU import *
-from m5.objects.BaseMinorCPU import *
+
 from m5.objects.RiscvCPU import RiscvO3CPU
+
+# just for x86 testing
+#from m5.objects.X86CPU import X86O3CPU as RiscvO3CPU
+
+# just for ARM testing
+# from m5.objects.ArmCPU import ArmO3CPU as RiscvO3CPU
 
 from gem5.components.processors.base_cpu_core import BaseCPUCore
 from gem5.components.processors.cpu_types import CPUTypes
@@ -125,7 +130,7 @@ class CryoCPU(RiscvO3CPU):
     dispatchWidth = 4
     issueWidth = 4
     wbWidth = 4
-    numPhysCCRegs = 0
+    numPhysCCRegs = 10 # I got an error when I set this to 0; error was "src/cpu/o3/cpu.cc:206: gem5::o3::CPU::CPU(const gem5::BaseO3CPUParams&): Assertion `params.numPhysCCRegs >= numThreads * regClasses.at(CCRegClass)->numRegs()' failed."
 
     commitWidth = 4
     squashWidth = 4
