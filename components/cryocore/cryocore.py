@@ -32,7 +32,7 @@ from m5.objects import (
     Port,
     Process,
 )
-
+from m5.objects.BaseMinorCPU import *
 from m5.objects.RiscvCPU import RiscvO3CPU
 
 # just for x86 testing
