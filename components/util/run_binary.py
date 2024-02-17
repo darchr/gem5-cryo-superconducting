@@ -42,7 +42,7 @@ cd ..
 ```
 """
 
-def run_binary(config, benchmark):
+def run_binary(config, workload):
 
     from gem5.components.boards.simple_board import SimpleBoard
     from gem5.components.cachehierarchies.classic.no_cache import NoCache
@@ -143,43 +143,8 @@ def run_binary(config, benchmark):
             cache_hierarchy=cache_hierarchy,
         )
 
-    # I don't like this, but it's the only way to get the benchmarks to work since they need arguments and input files
-    if benchmark == "minisat":
-        board.set_se_binary_workload(
-            CustomResource("/home/paikunal/personal/llvm-test-suite/build/MultiSource/Applications/minisat/minisat"), arguments=["-verbosity=0"], stdin_file=FileResource("/home/paikunal/personal/llvm-test-suite/build/MultiSource/Applications/minisat/short.cnf")
-        )
-    if benchmark == "npb-bt":
-        board.set_se_binary_workload(
-            CustomResource("/home/paikunal/personal/second-gem5/NPB3.3.1/serial-binaries/bt.S.x")
-        )
-    if benchmark == "npb-cg":
-        board.set_se_binary_workload(
-            CustomResource("/home/paikunal/personal/second-gem5/NPB3.3.1/serial-binaries/cg.S.x")
-        )
-    if benchmark == "npb-ft":
-        board.set_se_binary_workload(
-            CustomResource("/home/paikunal/personal/second-gem5/NPB3.3.1/serial-binaries/ft.S.x")
-        )
-    if benchmark == "npb-lu":
-        board.set_se_binary_workload(
-            CustomResource("/home/paikunal/personal/second-gem5/NPB3.3.1/serial-binaries/lu.S.x")
-        )
-    if benchmark == "npb-is":
-        board.set_se_binary_workload(
-            CustomResource("/home/paikunal/personal/second-gem5/NPB3.3.1/NPB3.3-SER/bin/is.S.x")
-        )
-    if benchmark == "npb-mg":
-        board.set_se_binary_workload(
-            CustomResource("/home/paikunal/personal/second-gem5/NPB3.3.1/serial-binaries/mg.S.x")
-        )
-    if benchmark == "gapbs-bfs":
-        board.set_se_binary_workload(
-            CustomResource("/home/paikunal/personal/second-gem5/gapbs/bfs"), arguments=["-g", "10", "-n", "1"]
-        )
-    if benchmark == "gapbs-tc":
-        board.set_se_binary_workload(
-            CustomResource("/home/paikunal/personal/second-gem5/gapbs/tc"), arguments=["-g", "20", "-n", "10"]
-        )
+    print(f"Running {workload.get_id()} on {config} configuration")
+    board.set_workload(workload)
     
     # Lastly we run the simulation.
     simulator = Simulator(board=board)
