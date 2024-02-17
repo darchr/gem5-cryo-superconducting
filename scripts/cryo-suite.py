@@ -77,27 +77,28 @@ argparser.add_argument("--config", type=str, default="default", help="Configurat
 args = argparser.parse_args()
 
 
-names = [
-    # "minisat",
-    # "npb-bt",
-    # "npb-cg",
-    # "npb-ft",
-    # "npb-lu",
-    "npb-is",
-    # "npb-mg",
-    # "gapbs-bfs",
-    # "gapbs-tc"
-]
 
 if __name__ == "__m5_main__":
+    #workloads = [ workload for workload in obtain_resource("riscv-getting-started-benchmark-suite") ]
+    workloads = [ obtain_resource("riscv-npb-cg-size-s-run"),  
+                obtain_resource("riscv-npb-bt-size-s-run"),
+                obtain_resource("riscv-npb-is-size-s-run"), 
+                obtain_resource("riscv-npb-lu-size-s-run"),
+                obtain_resource("riscv-npb-ft-size-s-run"),
+                obtain_resource("riscv-gapbs-bfs-run"),
+                obtain_resource("riscv-gapbs-tc-run"),
+                obtain_resource("riscv-gapbs-cc-run"),
+                obtain_resource("riscv-llvm-minisat-run"),
+    ]
     processes = []
-    for i, bm in enumerate(names):
+    for i, bm in enumerate(workloads):
+        print(f"Running {bm.get_id()} on CryoCore")
         if len(processes) > 9:
             for process in processes:
                 if not process.is_alive():
                     processes.remove(process)
             sleep(10)
-        process = Process(target=run_binary, args=(args.config,bm,), name=names[i])
+        process = Process(target=run_binary, args=(args.config,bm,), name=bm.get_id())
         process.start()
         processes.append(process)
         if i == 9:
