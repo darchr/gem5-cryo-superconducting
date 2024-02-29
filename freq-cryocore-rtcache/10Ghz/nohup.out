@@ -1,0 +1,612 @@
+gem5 Simulator System.  https://www.gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 version 23.1.0.0
+gem5 compiled Feb 17 2024 17:24:12
+gem5 started Feb 17 2024 18:06:43
+gem5 executing on amarillo, pid 1302590
+command line: ./gem5/build/RISCV/gem5.opt scripts/cryo-suite.py --config cryocore
+
+info: Standard input is not a terminal, disabling listeners.
+info: Using default config
+info: Appending resources from /home/anusheel/cryo/gem5-cryo-supercomputing/getting_started_riscv.json
+Running riscv-npb-cg-size-s-run on CryoCore
+Running riscv-npb-bt-size-s-run on CryoCore
+Running riscv-npb-is-size-s-run on CryoCore
+Running riscv-npb-lu-size-s-run on CryoCore
+Running riscv-npb-ft-size-s-run on CryoCore
+Running riscv-gapbs-bfs-run on CryoCore
+Running riscv-gapbs-tc-run on CryoCore
+Running riscv-llvm-minisat-run on CryoCore
+gem5 Simulator System.  https://www.gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 version 23.1.0.0
+gem5 compiled Feb 17 2024 17:24:12
+gem5 started Feb 17 2024 18:06:48
+gem5 executing on amarillo, pid 1302622
+command line: /home/anusheel/cryo/gem5-cryo-supercomputing/gem5/build/RISCV/gem5.opt -s -c 'from multiprocessing.resource_tracker import main;main(4)'
+
+info: Standard input is not a terminal, disabling listeners.
+Global frequency set at 1000000000000 ticks per second
+Global frequency set at 1000000000000 ticks per second
+Global frequency set at 1000000000000 ticks per second
+Global frequency set at 1000000000000 ticks per second
+Global frequency set at 1000000000000 ticks per second
+Global frequency set at 1000000000000 ticks per second
+Global frequency set at 1000000000000 ticks per second
+Global frequency set at 1000000000000 ticks per second
+src/arch/riscv/isa.cc:275: info: RVV enabled, VLEN = 256 bits, ELEN = 64 bits
+src/base/statistics.hh:279: warn: One of the stats is a legacy stat. Legacy stat is a stat that does not belong to any statistics::Group. Legacy stat is deprecated.
+src/cpu/o3/cpu.cc:211: warn: Non-zero number of physical CC regs specified, even though
+    ISA does not use them.
+src/arch/riscv/isa.cc:275: info: RVV enabled, VLEN = 256 bits, ELEN = 64 bits
+src/cpu/o3/cpu.cc:211: warn: Non-zero number of physical CC regs specified, even though
+    ISA does not use them.
+src/base/remote_gdb.cc:418: warn: Sockets disabled, not accepting gdb connections
+src/arch/riscv/isa.cc:275: info: RVV enabled, VLEN = 256 bits, ELEN = 64 bits
+src/base/statistics.hh:279: warn: One of the stats is a legacy stat. Legacy stat is a stat that does not belong to any statistics::Group. Legacy stat is deprecated.
+src/cpu/o3/cpu.cc:211: warn: Non-zero number of physical CC regs specified, even though
+    ISA does not use them.
+src/arch/riscv/isa.cc:275: info: RVV enabled, VLEN = 256 bits, ELEN = 64 bits
+src/cpu/o3/cpu.cc:211: warn: Non-zero number of physical CC regs specified, even though
+    ISA does not use them.
+src/arch/riscv/isa.cc:275: info: RVV enabled, VLEN = 256 bits, ELEN = 64 bits
+src/base/statistics.hh:279: warn: One of the stats is a legacy stat. Legacy stat is a stat that does not belong to any statistics::Group. Legacy stat is deprecated.
+src/cpu/o3/cpu.cc:211: warn: Non-zero number of physical CC regs specified, even though
+    ISA does not use them.
+src/base/remote_gdb.cc:418: warn: Sockets disabled, not accepting gdb connections
+src/arch/riscv/isa.cc:275: info: RVV enabled, VLEN = 256 bits, ELEN = 64 bits
+src/arch/riscv/isa.cc:275: info: RVV enabled, VLEN = 256 bits, ELEN = 64 bits
+src/base/statistics.hh:279: warn: One of the stats is a legacy stat. Legacy stat is a stat that does not belong to any statistics::Group. Legacy stat is deprecated.
+src/cpu/o3/cpu.cc:211: warn: Non-zero number of physical CC regs specified, even though
+    ISA does not use them.
+src/cpu/o3/cpu.cc:211: warn: Non-zero number of physical CC regs specified, even though
+    ISA does not use them.
+src/arch/riscv/isa.cc:275: info: RVV enabled, VLEN = 256 bits, ELEN = 64 bits
+src/cpu/o3/cpu.cc:211: warn: Non-zero number of physical CC regs specified, even though
+    ISA does not use them.
+src/base/remote_gdb.cc:418: warn: Sockets disabled, not accepting gdb connections
+src/base/remote_gdb.cc:418: warn: Sockets disabled, not accepting gdb connections
+src/arch/riscv/isa.cc:275: info: RVV enabled, VLEN = 256 bits, ELEN = 64 bits
+src/base/statistics.hh:279: warn: One of the stats is a legacy stat. Legacy stat is a stat that does not belong to any statistics::Group. Legacy stat is deprecated.
+src/cpu/o3/cpu.cc:211: warn: Non-zero number of physical CC regs specified, even though
+    ISA does not use them.
+src/arch/riscv/isa.cc:275: info: RVV enabled, VLEN = 256 bits, ELEN = 64 bits
+src/arch/riscv/isa.cc:275: info: RVV enabled, VLEN = 256 bits, ELEN = 64 bits
+src/cpu/o3/cpu.cc:211: warn: Non-zero number of physical CC regs specified, even though
+    ISA does not use them.
+src/base/statistics.hh:279: warn: One of the stats is a legacy stat. Legacy stat is a stat that does not belong to any statistics::Group. Legacy stat is deprecated.
+src/cpu/o3/cpu.cc:211: warn: Non-zero number of physical CC regs specified, even though
+    ISA does not use them.
+src/arch/riscv/isa.cc:275: info: RVV enabled, VLEN = 256 bits, ELEN = 64 bits
+src/base/remote_gdb.cc:418: warn: Sockets disabled, not accepting gdb connections
+src/cpu/o3/cpu.cc:211: warn: Non-zero number of physical CC regs specified, even though
+    ISA does not use them.
+src/base/remote_gdb.cc:418: warn: Sockets disabled, not accepting gdb connections
+src/arch/riscv/isa.cc:275: info: RVV enabled, VLEN = 256 bits, ELEN = 64 bits
+src/base/statistics.hh:279: warn: One of the stats is a legacy stat. Legacy stat is a stat that does not belong to any statistics::Group. Legacy stat is deprecated.
+src/cpu/o3/cpu.cc:211: warn: Non-zero number of physical CC regs specified, even though
+    ISA does not use them.
+src/arch/riscv/isa.cc:275: info: RVV enabled, VLEN = 256 bits, ELEN = 64 bits
+src/cpu/o3/cpu.cc:211: warn: Non-zero number of physical CC regs specified, even though
+    ISA does not use them.
+src/base/remote_gdb.cc:418: warn: Sockets disabled, not accepting gdb connections
+src/arch/riscv/isa.cc:275: info: RVV enabled, VLEN = 256 bits, ELEN = 64 bits
+src/base/statistics.hh:279: warn: One of the stats is a legacy stat. Legacy stat is a stat that does not belong to any statistics::Group. Legacy stat is deprecated.
+src/cpu/o3/cpu.cc:211: warn: Non-zero number of physical CC regs specified, even though
+    ISA does not use them.
+src/arch/riscv/isa.cc:275: info: RVV enabled, VLEN = 256 bits, ELEN = 64 bits
+src/cpu/o3/cpu.cc:211: warn: Non-zero number of physical CC regs specified, even though
+    ISA does not use them.
+src/base/remote_gdb.cc:418: warn: Sockets disabled, not accepting gdb connections
+gem5 Simulator System.  https://www.gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 version 23.1.0.0
+gem5 compiled Feb 17 2024 17:24:12
+gem5 started Feb 17 2024 18:06:48
+gem5 executing on amarillo, pid 1302624
+command line: /home/anusheel/cryo/gem5-cryo-supercomputing/gem5/build/RISCV/gem5.opt -s --outdir=m5out/riscv-npb-bt-size-s-run --stdout-file=simout.txt --stderr-file=simerr.txt --stats-file=stats.txt -c 'from multiprocessing.spawn import spawn_main; spawn_main(tracker_fd=5, pipe_handle=9)' --multiprocessing-fork
+
+info: Standard input is not a terminal, disabling listeners.
+Running riscv-npb-bt-size-s-run on cryocore configuration
+info: Using default config
+info: Appending resources from /home/anusheel/cryo/gem5-cryo-supercomputing/getting_started_riscv.json
+src/sim/simulate.cc:199: info: Entering event queue @ 0.  Starting simulation...
+src/sim/syscall_emul.cc:85: warn: ignoring syscall set_robust_list(...)
+      (further warnings will be suppressed)
+src/sim/syscall_emul.hh:1014: warn: readlink() called on '/proc/self/exe' may yield unexpected results in various settings.
+      Returning '/home/anusheel/.cache/gem5/riscv-npb-bt-size-s'
+src/sim/mem_state.cc:448: info: Increasing stack size by one page.
+src/sim/syscall_emul.cc:74: warn: ignoring syscall mprotect(...)
+gem5 Simulator System.  https://www.gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 version 23.1.0.0
+gem5 compiled Feb 17 2024 17:24:12
+gem5 started Feb 17 2024 18:06:48
+gem5 executing on amarillo, pid 1302625
+command line: /home/anusheel/cryo/gem5-cryo-supercomputing/gem5/build/RISCV/gem5.opt -s --outdir=m5out/riscv-npb-is-size-s-run --stdout-file=simout.txt --stderr-file=simerr.txt --stats-file=stats.txt -c 'from multiprocessing.spawn import spawn_main; spawn_main(tracker_fd=5, pipe_handle=11)' --multiprocessing-fork
+
+info: Standard input is not a terminal, disabling listeners.
+Running riscv-npb-is-size-s-run on cryocore configuration
+info: Using default config
+info: Appending resources from /home/anusheel/cryo/gem5-cryo-supercomputing/getting_started_riscv.json
+src/sim/simulate.cc:199: info: Entering event queue @ 0.  Starting simulation...
+src/sim/syscall_emul.cc:85: warn: ignoring syscall set_robust_list(...)
+      (further warnings will be suppressed)
+src/sim/syscall_emul.hh:1014: warn: readlink() called on '/proc/self/exe' may yield unexpected results in various settings.
+      Returning '/home/anusheel/.cache/gem5/riscv-npb-is-size-s'
+src/sim/mem_state.cc:448: info: Increasing stack size by one page.
+gem5 Simulator System.  https://www.gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 version 23.1.0.0
+gem5 compiled Feb 17 2024 17:24:12
+gem5 started Feb 17 2024 18:06:48
+gem5 executing on amarillo, pid 1302623
+command line: /home/anusheel/cryo/gem5-cryo-supercomputing/gem5/build/RISCV/gem5.opt -s --outdir=m5out/riscv-npb-cg-size-s-run --stdout-file=simout.txt --stderr-file=simerr.txt --stats-file=stats.txt -c 'from multiprocessing.spawn import spawn_main; spawn_main(tracker_fd=5, pipe_handle=7)' --multiprocessing-fork
+
+info: Standard input is not a terminal, disabling listeners.
+Running riscv-npb-cg-size-s-run on cryocore configuration
+info: Using default config
+info: Appending resources from /home/anusheel/cryo/gem5-cryo-supercomputing/getting_started_riscv.json
+src/sim/simulate.cc:199: info: Entering event queue @ 0.  Starting simulation...
+src/sim/syscall_emul.cc:85: warn: ignoring syscall rt_sigaction(...)
+      (further warnings will be suppressed)
+gem5 Simulator System.  https://www.gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 version 23.1.0.0
+gem5 compiled Feb 17 2024 17:24:12
+gem5 started Feb 17 2024 18:06:48
+gem5 executing on amarillo, pid 1302629
+command line: /home/anusheel/cryo/gem5-cryo-supercomputing/gem5/build/RISCV/gem5.opt -s --outdir=m5out/riscv-gapbs-tc-run --stdout-file=simout.txt --stderr-file=simerr.txt --stats-file=stats.txt -c 'from multiprocessing.spawn import spawn_main; spawn_main(tracker_fd=5, pipe_handle=22)' --multiprocessing-fork
+
+info: Standard input is not a terminal, disabling listeners.
+Running riscv-gapbs-tc-run on cryocore configuration
+info: Using default config
+info: Appending resources from /home/anusheel/cryo/gem5-cryo-supercomputing/getting_started_riscv.json
+src/sim/simulate.cc:199: info: Entering event queue @ 0.  Starting simulation...
+src/sim/syscall_emul.cc:85: warn: ignoring syscall set_robust_list(...)
+      (further warnings will be suppressed)
+src/sim/syscall_emul.cc:85: warn: ignoring syscall set_robust_list(...)
+      (further warnings will be suppressed)
+src/sim/syscall_emul.hh:1014: warn: readlink() called on '/proc/self/exe' may yield unexpected results in various settings.
+      Returning '/home/anusheel/.cache/gem5/riscv-npb-cg-size-s'
+src/sim/mem_state.cc:448: info: Increasing stack size by one page.
+src/sim/syscall_emul.cc:85: warn: ignoring syscall rt_sigaction(...)
+      (further warnings will be suppressed)
+src/sim/syscall_emul.cc:85: warn: ignoring syscall rt_sigprocmask(...)
+      (further warnings will be suppressed)
+src/sim/syscall_emul.hh:1014: warn: readlink() called on '/proc/self/exe' may yield unexpected results in various settings.
+      Returning '/home/anusheel/.cache/gem5/riscv-gapbs-tc'
+src/sim/mem_state.cc:448: info: Increasing stack size by one page.
+src/sim/syscall_emul.cc:74: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.cc:74: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.cc:74: warn: ignoring syscall mprotect(...)
+gem5 Simulator System.  https://www.gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 version 23.1.0.0
+gem5 compiled Feb 17 2024 17:24:12
+gem5 started Feb 17 2024 18:06:48
+gem5 executing on amarillo, pid 1302628
+command line: /home/anusheel/cryo/gem5-cryo-supercomputing/gem5/build/RISCV/gem5.opt -s --outdir=m5out/riscv-gapbs-bfs-run --stdout-file=simout.txt --stderr-file=simerr.txt --stats-file=stats.txt -c 'from multiprocessing.spawn import spawn_main; spawn_main(tracker_fd=5, pipe_handle=18)' --multiprocessing-fork
+
+info: Standard input is not a terminal, disabling listeners.
+Running riscv-gapbs-bfs-run on cryocore configuration
+info: Using default config
+info: Appending resources from /home/anusheel/cryo/gem5-cryo-supercomputing/getting_started_riscv.json
+src/sim/simulate.cc:199: info: Entering event queue @ 0.  Starting simulation...
+
+src/sim/syscall_emul.cc:85: warn: ignoring syscall set_robust_list(...)
+      (further warnings will be suppressed)
+
+src/sim/syscall_emul.cc:85: warn: ignoring syscall rt_sigaction(...)
+      (further warnings will be suppressed)
+src/sim/syscall_emul.cc:85: warn: ignoring syscall rt_sigprocmask(...)
+      (further warnings will be suppressed)
+src/sim/syscall_emul.hh:1014: warn: readlink() called on '/proc/self/exe' may yield unexpected results in various settings.
+      Returning '/home/anusheel/.cache/gem5/riscv-gapbs-bfs'
+src/sim/mem_state.cc:448: info: Increasing stack size by one page.
+src/sim/syscall_emul.cc:85: warn: ignoring syscall rt_sigaction(...)
+      (further warnings will be suppressed)
+ NAS Parallel Benchmarks (NPB3.3-SER) - BT Benchmark
+
+src/sim/syscall_emul.cc:74: warn: ignoring syscall mprotect(...)
+ No input file inputbt.data. Using compiled defaults
+gem5 Simulator System.  https://www.gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 version 23.1.0.0
+gem5 compiled Feb 17 2024 17:24:12
+gem5 started Feb 17 2024 18:06:48
+gem5 executing on amarillo, pid 1302630
+command line: /home/anusheel/cryo/gem5-cryo-supercomputing/gem5/build/RISCV/gem5.opt -s --outdir=m5out/riscv-llvm-minisat-run --stdout-file=simout.txt --stderr-file=simerr.txt --stats-file=stats.txt -c 'from multiprocessing.spawn import spawn_main; spawn_main(tracker_fd=5, pipe_handle=25)' --multiprocessing-fork
+
+info: Standard input is not a terminal, disabling listeners.
+Running riscv-llvm-minisat-run on cryocore configuration
+info: Using default config
+info: Appending resources from /home/anusheel/cryo/gem5-cryo-supercomputing/getting_started_riscv.json
+src/sim/simulate.cc:199: info: Entering event queue @ 0.  Starting simulation...
+src/sim/syscall_emul.hh:1014: warn: readlink() called on '/proc/self/exe' may yield unexpected results in various settings.
+      Returning '/home/anusheel/.cache/gem5/riscv-llvm-minisat'
+src/sim/mem_state.cc:448: info: Increasing stack size by one page.
+gem5 Simulator System.  https://www.gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 version 23.1.0.0
+gem5 compiled Feb 17 2024 17:24:12
+gem5 started Feb 17 2024 18:06:48
+gem5 executing on amarillo, pid 1302626
+command line: /home/anusheel/cryo/gem5-cryo-supercomputing/gem5/build/RISCV/gem5.opt -s --outdir=m5out/riscv-npb-lu-size-s-run --stdout-file=simout.txt --stderr-file=simerr.txt --stats-file=stats.txt -c 'from multiprocessing.spawn import spawn_main; spawn_main(tracker_fd=5, pipe_handle=13)' --multiprocessing-fork
+
+info: Standard input is not a terminal, disabling listeners.
+Running riscv-npb-lu-size-s-run on cryocore configuration
+info: Using default config
+info: Appending resources from /home/anusheel/cryo/gem5-cryo-supercomputing/getting_started_riscv.json
+src/sim/simulate.cc:199: info: Entering event queue @ 0.  Starting simulation...
+
+
+src/sim/syscall_emul.cc:85: warn: ignoring syscall set_robust_list(...)
+      (further warnings will be suppressed)
+ NAS Parallel Benchmarks (NPB3.3-SER) - CG Benchmark
+src/sim/syscall_emul.hh:1014: warn: readlink() called on '/proc/self/exe' may yield unexpected results in various settings.
+      Returning '/home/anusheel/.cache/gem5/riscv-npb-lu-size-s'
+src/sim/mem_state.cc:448: info: Increasing stack size by one page.
+
+ Size:   12x  12x  12
+src/sim/syscall_emul.cc:74: warn: ignoring syscall mprotect(...)
+This is MiniSat 2.0 beta
+Reading from standard input... Use '-h' or '--help' for help.
+============================[ Problem Statistics ]=============================
+|                                                                             |
+ Size:        1400
+src/sim/syscall_emul.cc:74: warn: ignoring syscall mprotect(...)
+ Iterations:   60    dt:   0.010000
+ Iterations:    15
+
+src/sim/mem_state.cc:448: info: Increasing stack size by one page.
+src/sim/mem_state.cc:448: info: Increasing stack size by one page.
+
+|  Number of variables:  65902                                                |
+src/sim/mem_state.cc:448: info: Increasing stack size by one page.
+|  Number of clauses:    218335                                               |
+src/sim/syscall_emul.cc:85: warn: ignoring syscall rt_sigaction(...)
+      (further warnings will be suppressed)
+gem5 Simulator System.  https://www.gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 version 23.1.0.0
+gem5 compiled Feb 17 2024 17:24:12
+gem5 started Feb 17 2024 18:06:48
+gem5 executing on amarillo, pid 1302627
+command line: /home/anusheel/cryo/gem5-cryo-supercomputing/gem5/build/RISCV/gem5.opt -s --outdir=m5out/riscv-npb-ft-size-s-run --stdout-file=simout.txt --stderr-file=simerr.txt --stats-file=stats.txt -c 'from multiprocessing.spawn import spawn_main; spawn_main(tracker_fd=5, pipe_handle=15)' --multiprocessing-fork
+
+info: Standard input is not a terminal, disabling listeners.
+Running riscv-npb-ft-size-s-run on cryocore configuration
+info: Using default config
+info: Appending resources from /home/anusheel/cryo/gem5-cryo-supercomputing/getting_started_riscv.json
+src/sim/simulate.cc:199: info: Entering event queue @ 0.  Starting simulation...
+src/sim/syscall_emul.cc:85: warn: ignoring syscall set_robust_list(...)
+      (further warnings will be suppressed)
+src/sim/syscall_emul.hh:1014: warn: readlink() called on '/proc/self/exe' may yield unexpected results in various settings.
+      Returning '/home/anusheel/.cache/gem5/riscv-npb-ft-size-s'
+src/sim/mem_state.cc:448: info: Increasing stack size by one page.
+src/sim/mem_state.cc:448: info: Increasing stack size by one page.
+src/sim/syscall_emul.cc:74: warn: ignoring syscall mprotect(...)
+
+
+ NAS Parallel Benchmarks (NPB3.3-SER) - LU Benchmark
+
+src/sim/syscall_emul.cc:85: warn: ignoring syscall rt_sigaction(...)
+      (further warnings will be suppressed)
+ Size:   12x  12x  12
+ Iterations:   50
+
+
+
+ NAS Parallel Benchmarks (NPB3.3-SER) - FT Benchmark
+
+src/sim/syscall_emul.cc:74: warn: ignoring syscall mprotect(...)
+src/sim/power_state.cc:105: warn: PowerState: Already in the requested power state, request ignored
+ Size                :   64x  64x  64
+ Iterations          :              6
+
+src/sim/syscall_emul.cc:74: warn: ignoring syscall mprotect(...)
+src/sim/power_state.cc:105: warn: PowerState: Already in the requested power state, request ignored
+src/sim/mem_state.cc:448: info: Increasing stack size by one page.
+src/sim/syscall_emul.hh:1313: warn: mremapping to new vaddr 0x4000000000190000-0x4000000000231000, adding 221184
+src/sim/syscall_emul.hh:1332: warn: returning 0x4000000000190000 as start
+src/sim/syscall_emul.hh:1313: warn: mremapping to new vaddr 0x4000000000231000-0x4000000000267000, adding 73728
+src/sim/syscall_emul.hh:1332: warn: returning 0x4000000000231000 as start
+src/sim/syscall_emul.hh:1313: warn: mremapping to new vaddr 0x400000000029d000-0x400000000038e000, adding 327680
+src/sim/syscall_emul.hh:1332: warn: returning 0x400000000029d000 as start
+ Time step    1
+src/sim/mem_state.cc:448: info: Increasing stack size by one page.
+Generate Time:       0.00069
+Generate Time:       0.00073
+src/sim/syscall_emul.hh:1313: warn: mremapping to new vaddr 0x400000000038e000-0x40000000003df000, adding 110592
+src/sim/syscall_emul.hh:1332: warn: returning 0x400000000038e000 as start
+src/sim/syscall_emul.hh:1313: warn: mremapping to new vaddr 0x40000000003df000-0x4000000000430000, adding 110592
+src/sim/syscall_emul.hh:1332: warn: returning 0x40000000003df000 as start
+src/sim/syscall_emul.hh:1313: warn: mremapping to new vaddr 0x4000000000459000-0x40000000005c2000, adding 491520
+src/sim/syscall_emul.hh:1332: warn: returning 0x4000000000459000 as start
+Build Time:          0.00023
+Build Time:          0.00022
+src/sim/syscall_emul.cc:74: warn: ignoring syscall mprotect(...)
+ Time step    1
+src/sim/syscall_emul.hh:1313: warn: mremapping to new vaddr 0x40000000005c2000-0x400000000063b000, adding 163840
+src/sim/syscall_emul.hh:1332: warn: returning 0x40000000005c2000 as start
+src/sim/syscall_emul.hh:1313: warn: mremapping to new vaddr 0x4000000000678000-0x40000000006f1000, adding 163840
+src/sim/syscall_emul.hh:1332: warn: returning 0x4000000000678000 as start
+src/sim/syscall_emul.hh:1313: warn: mremapping to new vaddr 0x40000000006f1000-0x400000000072e000, adding 81920
+src/sim/syscall_emul.hh:1332: warn: returning 0x40000000006f1000 as start
+src/sim/syscall_emul.hh:1313: warn: mremapping to new vaddr 0x400000000076b000-0x4000000000988000, adding 737280
+src/sim/syscall_emul.hh:1332: warn: returning 0x400000000076b000 as start
+Graph has 1024 nodes and 10496 undirected edges for degree: 10
+src/sim/syscall_emul.cc:74: warn: ignoring syscall mprotect(...)
+Graph has 1024 nodes and 10496 undirected edges for degree: 10
+Trial Time:          0.00002
+Trial Time:          0.00001
+Trial Time:          0.00001
+Trial Time:          0.00001
+Trial Time:          0.00001
+Trial Time:          0.00001
+Trial Time:          0.00001
+Trial Time:          0.00001
+Trial Time:          0.00001
+Trial Time:          0.00001
+Average Time:        0.00001
+Relabel:             0.00011
+src/sim/syscall_emul.hh:1313: warn: mremapping to new vaddr 0x4000000000988000-0x4000000000a3d000, adding 245760
+src/sim/syscall_emul.hh:1332: warn: returning 0x4000000000988000 as start
+src/sim/syscall_emul.hh:1313: warn: mremapping to new vaddr 0x4000000000a3d000-0x4000000000a98000, adding 122880
+src/sim/syscall_emul.hh:1332: warn: returning 0x4000000000a3d000 as start
+src/sim/syscall_emul.hh:1313: warn: mremapping to new vaddr 0x4000000000a98000-0x4000000000b4d000, adding 245760
+src/sim/syscall_emul.hh:1332: warn: returning 0x4000000000a98000 as start
+src/sim/syscall_emul.hh:1313: warn: mremapping to new vaddr 0x4000000000b4d000-0x4000000000ba8000, adding 122880
+src/sim/syscall_emul.hh:1332: warn: returning 0x4000000000b4d000 as start
+src/sim/syscall_emul.hh:1313: warn: mremapping to new vaddr 0x4000000000ba8000-0x4000000000c03000, adding 122880
+src/sim/syscall_emul.hh:1332: warn: returning 0x4000000000ba8000 as start
+Trial Time:          0.00024
+Relabel:             0.00009
+Trial Time:          0.00021
+Relabel:             0.00009
+Trial Time:          0.00021
+
+
+ NAS Parallel Benchmarks (NPB3.3-SER) - IS Benchmark
+
+ Size:  65536  (class S)
+ Iterations:   10
+
+
+ IS Benchmark Completed
+ Class           =                        S
+ Size            =                    65536
+ Iterations      =                       10
+ Time in seconds =                     0.00
+ Mop/s total     =                   623.56
+ Operation type  =              keys ranked
+ Verification    =               SUCCESSFUL
+ Version         =                    3.3.1
+ Compile date    =              13 Feb 2024
+
+ Compile options:
+    CC           = riscv64-linux-gnu-gcc
+    CLINK        = $(CC)
+    C_LIB        = (none)
+    C_INC        = (none)
+    CFLAGS       = -O3 -mcmodel=medany 
+    CLINKFLAGS   = -O3 -mcmodel=medany -static
+
+
+ Please send all errors/feedbacks to:
+
+ NPB Development Team
+ npb@nas.nasa.gov
+
+
+Relabel:             0.00009
+Trial Time:          0.00021
+Relabel:             0.00009
+Trial Time:          0.00021
+Relabel:             0.00009
+Trial Time:          0.00021
+Relabel:             0.00009
+Trial Time:          0.00021
+Relabel:             0.00009
+Trial Time:          0.00021
+Relabel:             0.00009
+Trial Time:          0.00021
+Relabel:             0.00009
+ Time step   20
+Trial Time:          0.00020
+Average Time:        0.00021
+ Initialization time =           0.005 seconds
+
+   iteration           ||r||                 zeta
+        1       0.13759332167008E-12     9.9986441579140
+        2       0.21100925293149E-14     8.5733279203222
+ Time step   40
+        3       0.20064018438548E-14     8.5954510374058
+ Time step   20
+        4       0.19293864950162E-14     8.5969972340737
+ Time step   50
+
+ Verification being performed for class S
+ Accuracy setting for epsilon =  0.1000000000000E-07
+ Comparison of RMS-norms of residual
+           1   0.1619634321098E-01 0.1619634321098E-01 0.7026145256477E-13
+           2   0.2197674516484E-02 0.2197674516482E-02 0.1062261085656E-11
+           3   0.1517992765340E-02 0.1517992765340E-02 0.5056777315720E-13
+           4   0.1502958443600E-02 0.1502958443599E-02 0.4763984777880E-12
+           5   0.3426407315590E-01 0.3426407315590E-01 0.1437836841335E-13
+ Comparison of RMS-norms of solution error
+           1   0.6422331995794E-03 0.6422331995796E-03 0.2923919479675E-12
+           2   0.8414434204736E-04 0.8414434204735E-04 0.1501105719307E-12
+           3   0.5858826961645E-04 0.5858826961649E-04 0.6267563894571E-12
+           4   0.5847422259516E-04 0.5847422259516E-04 0.8297339419908E-13
+           5   0.1310334791411E-02 0.1310334791411E-02 0.6586293327136E-13
+ Comparison of surface integral
+               0.7841892886594E+01 0.7841892886594E+01 0.0000000000000E+00
+ Verification Successful
+
+
+ LU Benchmark Completed.
+ Class           =                        S
+ Size            =             12x  12x  12
+ Iterations      =                       50
+ Time in seconds =                     0.01
+ Mop/s total     =                 14067.44
+ Operation type  =           floating point
+ Verification    =               SUCCESSFUL
+ Version         =                    3.3.1
+ Compile date    =              13 Feb 2024
+
+ Compile options:
+    F77          = riscv64-linux-gnu-gfortran
+    FLINK        = $(F77)
+    F_LIB        = (none)
+    F_INC        = (none)
+    FFLAGS       = -O3 -mcmodel=medany 
+    FLINKFLAGS   = -O3 -mcmodel=medany -static
+    RAND         = (none)
+
+
+ Please send all errors/feedbacks to:
+
+ NPB Development Team
+ npb@nas.nasa.gov
+
+
+        5       0.18900547227626E-14     8.5971549151767
+        6       0.20489731527987E-14     8.5971744311608
+        7       0.19004935409921E-14     8.5971770704913
+        8       0.19301645313288E-14     8.5971774440630
+        9       0.19958155590568E-14     8.5971774983942
+src/sim/mem_state.cc:448: info: Increasing stack size by one page.
+ T =    1     Checksum =    5.546087004964D+02    4.845363331978D+02
+       10       0.17245809704914E-14     8.5971775064409
+ Time step   40
+       11       0.17398094867857E-14     8.5971775076486
+       12       0.18485117840899E-14     8.5971775078318
+       13       0.17959989010351E-14     8.5971775078598
+ T =    2     Checksum =    5.546385409190D+02    4.865304269511D+02
+       14       0.17217051744028E-14     8.5971775078641
+       15       0.17257186480034E-14     8.5971775078648
+ Benchmark completed 
+ VERIFICATION SUCCESSFUL 
+ Zeta is     0.8597177507865E+01
+ Error is    0.1239725599088E-14
+
+
+ CG Benchmark Completed.
+ Class           =                        S
+ Size            =                     1400
+ Iterations      =                       15
+ Time in seconds =                     0.02
+ Mop/s total     =                  3819.28
+ Operation type  =           floating point
+ Verification    =               SUCCESSFUL
+ Version         =                    3.3.1
+ Compile date    =              13 Feb 2024
+
+ Compile options:
+    F77          = riscv64-linux-gnu-gfortran
+    FLINK        = $(F77)
+    F_LIB        = (none)
+    F_INC        = (none)
+    FFLAGS       = -O3 -mcmodel=medany 
+    FLINKFLAGS   = -O3 -mcmodel=medany -static
+    RAND         = randdp
+
+
+ Please send all errors/feedbacks to:
+
+ NPB Development Team
+ npb@nas.nasa.gov
+
+
+ T =    3     Checksum =    5.546148406171D+02    4.883910722337D+02
+ Time step   60
+ Verification being performed for class S
+ accuracy setting for epsilon =  0.1000000000000E-07
+ Comparison of RMS-norms of residual
+           1 0.1703428370954E+00 0.1703428370954E+00 0.9336432983588E-13
+           2 0.1297525207004E-01 0.1297525207003E-01 0.2192594398356E-12
+           3 0.3252792698948E-01 0.3252792698949E-01 0.3274479233165E-12
+           4 0.2643642127515E-01 0.2643642127517E-01 0.5706201754798E-12
+           5 0.1921178413174E+00 0.1921178413174E+00 0.9433996734878E-13
+ Comparison of RMS-norms of solution error
+           1 0.4997691334580E-03 0.4997691334581E-03 0.2351636138155E-12
+           2 0.4519566678297E-04 0.4519566678296E-04 0.2316444910159E-12
+           3 0.7397376517294E-04 0.7397376517292E-04 0.2575893377455E-12
+           4 0.7382123863237E-04 0.7382123863244E-04 0.9216004443140E-12
+           5 0.8926963098749E-03 0.8926963098749E-03 0.2720536468564E-13
+ Verification Successful
+
+
+ BT Benchmark Completed.
+ Class           =                        S
+ Size            =             12x  12x  12
+ Iterations      =                       60
+ Time in seconds =                     0.02
+ Mop/s total     =                 12156.64
+ Operation type  =           floating point
+ Verification    =               SUCCESSFUL
+ Version         =                    3.3.1
+ Compile date    =              13 Feb 2024
+
+ Compile options:
+    F77          = riscv64-linux-gnu-gfortran
+    FLINK        = $(F77)
+    F_LIB        = (none)
+    F_INC        = (none)
+    FFLAGS       = -O3 -mcmodel=medany 
+    FLINKFLAGS   = -O3 -mcmodel=medany -static
+    RAND         = (none)
+
+
+ Please send all errors/feedbacks to:
+
+ NPB Development Team
+ npb@nas.nasa.gov
+
+
+ T =    4     Checksum =    5.545423607415D+02    4.901273169046D+02
+ T =    5     Checksum =    5.544255039624D+02    4.917475857993D+02
+ T =    6     Checksum =    5.542683411903D+02    4.932597244941D+02
+ Verification test for FT successful
+
+
+ FT Benchmark Completed.
+ Class           =                        S
+ Size            =             64x  64x  64
+ Iterations      =                        6
+ Time in seconds =                     0.03
+ Mop/s total     =                  5152.60
+ Operation type  =           floating point
+ Verification    =               SUCCESSFUL
+ Version         =                    3.3.1
+ Compile date    =              13 Feb 2024
+
+ Compile options:
+    F77          = riscv64-linux-gnu-gfortran
+    FLINK        = $(F77)
+    F_LIB        = (none)
+    F_INC        = (none)
+    FFLAGS       = -O3 -mcmodel=medany 
+    FLINKFLAGS   = -O3 -mcmodel=medany -static
+    RAND         = randdp
+
+
+ Please send all errors/feedbacks to:
+
+ NPB Development Team
+ npb@nas.nasa.gov
+
+
