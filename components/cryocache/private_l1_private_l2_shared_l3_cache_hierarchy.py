@@ -31,6 +31,8 @@ from m5.objects import (
     L2XBar,
     Port,
     SystemXBar,
+    SrcClockDomain,
+    VoltageDomain,
 )
 
 from gem5.isas import ISA
@@ -43,11 +45,12 @@ from gem5.components.cachehierarchies.classic.caches.l1dcache import L1DCache
 from gem5.components.cachehierarchies.classic.caches.l1icache import L1ICache
 from gem5.components.cachehierarchies.classic.caches.l2cache import L2Cache
 from gem5.components.cachehierarchies.classic.caches.mmu_cache import MMUCache
+from components.cryocache.cache import BasicCache
 
-class L3Cache(L2Cache):
-    def __init__(self, size: str, assoc: int, **kwargs) -> None:
-        super().__init__(size=size, assoc=assoc, **kwargs)
-
+# class L3Cache(L2Cache):
+#     def __init__(self, size: str, assoc: int, **kwargs) -> None:
+#         cache_clock_domain = SrcClockDomain(clock="1GHz", voltage_domain=VoltageDomain())
+#         super().__init__(size=size, assoc=assoc, **kwargs)
 
 class PrivateL1PrivateL2SharedL3CacheHierarchy(
     AbstractClassicCacheHierarchy, AbstractThreeLevelCacheHierarchy
@@ -86,6 +89,10 @@ class PrivateL1PrivateL2SharedL3CacheHierarchy(
         l1i_data_latency: int = 2,
         l2_data_latency: int = 10,
         l3_data_latency: int = 10,
+        l1d_clock: str = None,
+        l1i_clock: str = None,
+        l2_clock: str = None,
+        l3_clock: str = None,
         membus: BaseXBar = _get_default_membus.__func__(),
     ) -> None:
         """
@@ -102,6 +109,26 @@ class PrivateL1PrivateL2SharedL3CacheHierarchy(
         self._l1i_data_latency = l1i_data_latency
         self._l2_data_latency = l2_data_latency
         self._l3_data_latency = l3_data_latency
+
+        if l1d_clock is not None:
+            self._l1d_clock = SrcClockDomain(clock=l1d_clock, voltage_domain=VoltageDomain())
+        else:
+            self._l1d_clock = l1d_clock
+    
+        if l1i_clock is not None:
+            self._l1i_clock = SrcClockDomain(clock=l1i_clock, voltage_domain=VoltageDomain())
+        else:
+            self._l1i_clock = l1i_clock
+        
+        if l2_clock is not None:
+            self._l2_clock = SrcClockDomain(clock=l2_clock, voltage_domain=VoltageDomain())
+        else:
+            self._l2_clock = l2_clock
+
+        if l3_clock is not None:
+            self._l3_clock = SrcClockDomain(clock=l3_clock, voltage_domain=VoltageDomain())
+        else:
+            self._l3_clock = l3_clock
 
         AbstractClassicCacheHierarchy.__init__(self=self)
         AbstractThreeLevelCacheHierarchy.__init__(
@@ -134,23 +161,85 @@ class PrivateL1PrivateL2SharedL3CacheHierarchy(
         for _, port in board.get_memory().get_mem_ports():
             self.membus.mem_side_ports = port
 
-        self.l1icaches = [
-            L1ICache(size=self._l1i_size, assoc=self._l1i_assoc, data_latency=self._l1i_data_latency)
-            for i in range(board.get_processor().get_num_cores())
-        ]
-        self.l1dcaches = [
-            L1DCache(size=self._l1d_size, assoc=self._l1d_assoc, data_latency=self._l1d_data_latency)
-            for i in range(board.get_processor().get_num_cores())
-        ]
+        if self._l1i_clock is not None:
+            self.l1icaches = [
+                BasicCache(
+                    size=self._l1i_size,
+                    assoc=self._l1i_assoc,
+                    data_latency=self._l1i_data_latency,
+                    clk_domain=self._l1i_clock
+                )
+                for i in range(board.get_processor().get_num_cores())
+            ]
+        else:
+            self.l1icaches = [
+                BasicCache(
+                    size=self._l1i_size,
+                    assoc=self._l1i_assoc,
+                    data_latency=self._l1i_data_latency
+                )
+                for i in range(board.get_processor().get_num_cores())
+            ]
+        
+        if self._l1d_clock is not None:
+            self.l1dcaches = [
+                BasicCache(
+                    size=self._l1d_size,
+                    assoc=self._l1d_assoc,
+                    data_latency=self._l1d_data_latency,
+                    clk_domain=self._l1d_clock
+                )
+                for i in range(board.get_processor().get_num_cores())
+            ]
+        else:
+            self.l1dcaches = [
+                BasicCache(
+                    size=self._l1d_size,
+                    assoc=self._l1d_assoc,
+                    data_latency=self._l1d_data_latency
+                )
+                for i in range(board.get_processor().get_num_cores())
+            ]
+
         self.l2buses = [
             L2XBar() for i in range(board.get_processor().get_num_cores())
         ]
-        self.l2caches = [
-            L2Cache(size=self._l2_size, assoc=self._l2_assoc, data_latency=self._l2_data_latency)
-            for i in range(board.get_processor().get_num_cores())
-        ]
+
+        if self._l2_clock is not None:
+            self.l2caches = [
+                BasicCache(
+                    size=self._l2_size,
+                    assoc=self._l2_assoc,
+                    data_latency=self._l2_data_latency,
+                    clk_domain=self._l2_clock
+                )
+                for i in range(board.get_processor().get_num_cores())
+            ]
+        else:
+            self.l2caches = [
+                BasicCache(
+                    size=self._l2_size,
+                    assoc=self._l2_assoc,
+                    data_latency=self._l2_data_latency
+                )
+                for i in range(board.get_processor().get_num_cores())
+            ]
         self.l3bus = L2XBar()
-        self.l3cache = L3Cache(size=self._l3_size, assoc=self._l3_assoc, data_latency=self._l3_data_latency)
+
+        if self._l3_clock is not None:
+            self.l3cache = BasicCache(
+                size=self._l3_size,
+                assoc=self._l3_assoc,
+                data_latency=self._l3_data_latency,
+                clk_domain=self._l3_clock
+            )
+        else:
+            self.l3cache = BasicCache(
+                size=self._l3_size,
+                assoc=self._l3_assoc,
+                data_latency=self._l3_data_latency
+            )
+
         # ITLB Page walk caches
         self.iptw_caches = [
             MMUCache(size="8KiB")
