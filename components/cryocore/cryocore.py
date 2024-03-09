@@ -191,7 +191,18 @@ class CryoCore(BaseCPUCore):
     ):
         super().__init__(core=CryoCPU(cpu_id=core_id), isa=ISA.RISCV)
         self.core.isa[0].enable_rvv = False
-
+        self._citations += '''
+        @inproceedings{9138996,
+        author={Byun, Ilkwon and Min, Dongmoon and Lee, Gyu-hyeon and Na, Seongmin and Kim, Jangwoo},
+        booktitle={2020 ACM/IEEE 47th Annual International Symposium on Computer Architecture (ISCA)}, 
+        title={CryoCore: A Fast and Dense Processor Architecture for Cryogenic Computing}, 
+        year={2020},
+        volume={},
+        number={},
+        pages={335-348},
+        keywords={Cryogenic computing;Cryogenic processor;Modeling;Simulation},
+        doi={10.1109/ISCA45697.2020.00037}}
+        '''
 
 class CryoProcessor(BaseCPUProcessor):
     """

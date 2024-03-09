@@ -43,3 +43,20 @@ class AllEDramCache(PrivateL1PrivateL2SharedL3CacheHierarchy):
             l3_data_latency=21,
             **kwargs
         )
+        self._citations += '''@inproceedings{10.1145/3373376.3378513,
+        author = {Min, Dongmoon and Byun, Ilkwon and Lee, Gyu-Hyeon and Na, Seongmin and Kim, Jangwoo},
+        title = {CryoCache: A Fast, Large, and Cost-Effective Cache Architecture for Cryogenic Computing},
+        year = {2020},
+        isbn = {9781450371025},
+        publisher = {Association for Computing Machinery},
+        address = {New York, NY, USA},
+        url = {https://doi.org/10.1145/3373376.3378513},
+        doi = {10.1145/3373376.3378513},
+        booktitle = {Proceedings of the Twenty-Fifth International Conference on Architectural Support for Programming Languages and Operating Systems},
+        pages = {449–464},
+        numpages = {16},
+        keywords = {technology comparison and analysis, simulation, modeling, cryogenic computing, cryogenic cache},
+        location = {Lausanne, Switzerland},
+        series = {ASPLOS '20}
+        }
+        '''
