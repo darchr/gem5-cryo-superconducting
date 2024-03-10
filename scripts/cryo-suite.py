@@ -69,12 +69,16 @@ from components.cryocore.cryocore import CryoProcessor
 from components.cryocache.private_l1_private_l2_shared_l3_cache_hierarchy import PrivateL1PrivateL2SharedL3CacheHierarchy
 from components.cryocache.cryocache import CryoCache
 from components.util.run_binary import run_binary
+from components.util.run_different_clock_domains import run_different_clock_domains
 
 argparser = argparse.ArgumentParser()
 argparser.add_argument("--config", type=str, default="default", help="Configuration to run")
+argparser.add_argument("--clk_freq", type=str, default="4GHz", help="Clock frequency")
 
 # construct the board depending on the argparser
 args = argparser.parse_args()
+
+clock_freq = args.clk_freq
 
 
 
@@ -87,7 +91,6 @@ if __name__ == "__m5_main__":
                 obtain_resource("riscv-npb-ft-size-s-run"),
                 obtain_resource("riscv-gapbs-bfs-run"),
                 obtain_resource("riscv-gapbs-tc-run"),
-                obtain_resource("riscv-gapbs-cc-run"),
                 obtain_resource("riscv-llvm-minisat-run"),
     ]
     processes = []
@@ -98,7 +101,8 @@ if __name__ == "__m5_main__":
                 if not process.is_alive():
                     processes.remove(process)
             sleep(10)
-        process = Process(target=run_binary, args=(args.config,bm,), name=bm.get_id())
+        process = Process(target=run_different_clock_domains, args=(args.config,bm,clock_freq), name=bm.get_id())
+        # process = Process(target=run_binary, args=(args.config,bm), name=bm.get_id())
         process.start()
         processes.append(process)
         if i == 9:
