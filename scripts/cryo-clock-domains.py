@@ -62,13 +62,14 @@ sys.path.append(str(here.parent))
 
 from components.cryocore.cryocore import CryoProcessor
 from components.cryocache.cryocache import CryoCache
+from components.cryomem.memory import SingleChannelDDR3_1600WithClockDomain
 
 
 requires(isa_required=ISA.RISCV)
 
-cache_hierarchy = CryoCache(l1d_clock="1GHz", l2_clock="500MHz", l3_clock="250MHz")
+cache_hierarchy = CryoCache(l1d_clopk="4GHz", l1i_clock="3GHz", l2_clock="2GHz", l3_clock="100MHz")
 
-memory = SingleChannelDDR3_1600(size="32MB")
+memory = SingleChannelDDR3_1600WithClockDomain(size="32MB", clock="100GHz")
 
 processor =  CryoProcessor(num_cores=1)
 
@@ -79,8 +80,8 @@ board = SimpleBoard(
     cache_hierarchy=cache_hierarchy,
 )
 
-board.set_workload(
-    obtain_resource("riscv-llvm-minisat-run"),
+board.set_se_binary_workload(
+    obtain_resource("riscv-hello"),
 )
 
 # Lastly we run the simulation.
