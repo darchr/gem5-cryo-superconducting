@@ -1,3 +1,5 @@
 .dist/
 m5out/
 __pycache__/
+nohup*
+*.sh
