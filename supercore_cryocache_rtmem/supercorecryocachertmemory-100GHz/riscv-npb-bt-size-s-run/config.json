@@ -490,28 +490,7 @@
                         "0:18446744073709551615"
                     ],
                     "assoc": 8,
-                    "clk_domain": {
-                        "type": "SrcClockDomain",
-                        "cxx_class": "gem5::SrcClockDomain",
-                        "name": "clk_domain",
-                        "path": "board.cache_hierarchy.l1dcaches0.clk_domain",
-                        "clock": [
-                            250
-                        ],
-                        "domain_id": -1,
-                        "eventq_index": 0,
-                        "init_perf_level": 0,
-                        "voltage_domain": {
-                            "type": "VoltageDomain",
-                            "cxx_class": "gem5::VoltageDomain",
-                            "name": "voltage_domain",
-                            "path": "board.cache_hierarchy.l1dcaches0.clk_domain.voltage_domain",
-                            "eventq_index": 0,
-                            "voltage": [
-                                1.0
-                            ]
-                        }
-                    },
+                    "clk_domain": "board.cache_hierarchy.l1dcaches0.prefetcher.clk_domain",
                     "clusivity": "mostly_incl",
                     "compressor": null,
                     "data_latency": 2,
@@ -542,7 +521,28 @@
                         "path": "board.cache_hierarchy.l1dcaches0.prefetcher",
                         "block_size": 64,
                         "cache_snoop": false,
-                        "clk_domain": "board.cache_hierarchy.l1dcaches0.clk_domain",
+                        "clk_domain": {
+                            "type": "SrcClockDomain",
+                            "cxx_class": "gem5::SrcClockDomain",
+                            "name": "clk_domain",
+                            "path": "board.cache_hierarchy.l1dcaches0.prefetcher.clk_domain",
+                            "clock": [
+                                250
+                            ],
+                            "domain_id": -1,
+                            "eventq_index": 0,
+                            "init_perf_level": 0,
+                            "voltage_domain": {
+                                "type": "VoltageDomain",
+                                "cxx_class": "gem5::VoltageDomain",
+                                "name": "voltage_domain",
+                                "path": "board.cache_hierarchy.l1dcaches0.prefetcher.clk_domain.voltage_domain",
+                                "eventq_index": 0,
+                                "voltage": [
+                                    1.0
+                                ]
+                            }
+                        },
                         "confidence_counter_bits": 3,
                         "confidence_threshold": 50,
                         "degree": 4,
@@ -620,7 +620,7 @@
                         "path": "board.cache_hierarchy.l1dcaches0.tags",
                         "assoc": 8,
                         "block_size": 64,
-                        "clk_domain": "board.cache_hierarchy.l1dcaches0.clk_domain",
+                        "clk_domain": "board.cache_hierarchy.l1dcaches0.prefetcher.clk_domain",
                         "entry_size": 64,
                         "eventq_index": 0,
                         "indexing_policy": {
@@ -679,7 +679,7 @@
                         "0:18446744073709551615"
                     ],
                     "assoc": 8,
-                    "clk_domain": "board.cache_hierarchy.l1dcaches0.clk_domain",
+                    "clk_domain": "board.cache_hierarchy.l1dcaches0.prefetcher.clk_domain",
                     "clusivity": "mostly_incl",
                     "compressor": null,
                     "data_latency": 2,
@@ -710,7 +710,7 @@
                         "path": "board.cache_hierarchy.l1dcaches1.prefetcher",
                         "block_size": 64,
                         "cache_snoop": false,
-                        "clk_domain": "board.cache_hierarchy.l1dcaches0.clk_domain",
+                        "clk_domain": "board.cache_hierarchy.l1dcaches0.prefetcher.clk_domain",
                         "confidence_counter_bits": 3,
                         "confidence_threshold": 50,
                         "degree": 4,
@@ -788,7 +788,7 @@
                         "path": "board.cache_hierarchy.l1dcaches1.tags",
                         "assoc": 8,
                         "block_size": 64,
-                        "clk_domain": "board.cache_hierarchy.l1dcaches0.clk_domain",
+                        "clk_domain": "board.cache_hierarchy.l1dcaches0.prefetcher.clk_domain",
                         "entry_size": 64,
                         "eventq_index": 0,
                         "indexing_policy": {
@@ -849,28 +849,7 @@
                         "0:18446744073709551615"
                     ],
                     "assoc": 8,
-                    "clk_domain": {
-                        "type": "SrcClockDomain",
-                        "cxx_class": "gem5::SrcClockDomain",
-                        "name": "clk_domain",
-                        "path": "board.cache_hierarchy.l1icaches0.clk_domain",
-                        "clock": [
-                            250
-                        ],
-                        "domain_id": -1,
-                        "eventq_index": 0,
-                        "init_perf_level": 0,
-                        "voltage_domain": {
-                            "type": "VoltageDomain",
-                            "cxx_class": "gem5::VoltageDomain",
-                            "name": "voltage_domain",
-                            "path": "board.cache_hierarchy.l1icaches0.clk_domain.voltage_domain",
-                            "eventq_index": 0,
-                            "voltage": [
-                                1.0
-                            ]
-                        }
-                    },
+                    "clk_domain": "board.cache_hierarchy.l1icaches0.prefetcher.clk_domain",
                     "clusivity": "mostly_incl",
                     "compressor": null,
                     "data_latency": 2,
@@ -901,7 +880,28 @@
                         "path": "board.cache_hierarchy.l1icaches0.prefetcher",
                         "block_size": 64,
                         "cache_snoop": false,
-                        "clk_domain": "board.cache_hierarchy.l1icaches0.clk_domain",
+                        "clk_domain": {
+                            "type": "SrcClockDomain",
+                            "cxx_class": "gem5::SrcClockDomain",
+                            "name": "clk_domain",
+                            "path": "board.cache_hierarchy.l1icaches0.prefetcher.clk_domain",
+                            "clock": [
+                                250
+                            ],
+                            "domain_id": -1,
+                            "eventq_index": 0,
+                            "init_perf_level": 0,
+                            "voltage_domain": {
+                                "type": "VoltageDomain",
+                                "cxx_class": "gem5::VoltageDomain",
+                                "name": "voltage_domain",
+                                "path": "board.cache_hierarchy.l1icaches0.prefetcher.clk_domain.voltage_domain",
+                                "eventq_index": 0,
+                                "voltage": [
+                                    1.0
+                                ]
+                            }
+                        },
                         "confidence_counter_bits": 3,
                         "confidence_threshold": 50,
                         "degree": 4,
@@ -979,7 +979,7 @@
                         "path": "board.cache_hierarchy.l1icaches0.tags",
                         "assoc": 8,
                         "block_size": 64,
-                        "clk_domain": "board.cache_hierarchy.l1icaches0.clk_domain",
+                        "clk_domain": "board.cache_hierarchy.l1icaches0.prefetcher.clk_domain",
                         "entry_size": 64,
                         "eventq_index": 0,
                         "indexing_policy": {
@@ -1038,7 +1038,7 @@
                         "0:18446744073709551615"
                     ],
                     "assoc": 8,
-                    "clk_domain": "board.cache_hierarchy.l1icaches0.clk_domain",
+                    "clk_domain": "board.cache_hierarchy.l1icaches0.prefetcher.clk_domain",
                     "clusivity": "mostly_incl",
                     "compressor": null,
                     "data_latency": 2,
@@ -1069,7 +1069,7 @@
                         "path": "board.cache_hierarchy.l1icaches1.prefetcher",
                         "block_size": 64,
                         "cache_snoop": false,
-                        "clk_domain": "board.cache_hierarchy.l1icaches0.clk_domain",
+                        "clk_domain": "board.cache_hierarchy.l1icaches0.prefetcher.clk_domain",
                         "confidence_counter_bits": 3,
                         "confidence_threshold": 50,
                         "degree": 4,
@@ -1147,7 +1147,7 @@
                         "path": "board.cache_hierarchy.l1icaches1.tags",
                         "assoc": 8,
                         "block_size": 64,
-                        "clk_domain": "board.cache_hierarchy.l1icaches0.clk_domain",
+                        "clk_domain": "board.cache_hierarchy.l1icaches0.prefetcher.clk_domain",
                         "entry_size": 64,
                         "eventq_index": 0,
                         "indexing_policy": {
@@ -1204,7 +1204,7 @@
                     "cxx_class": "gem5::CoherentXBar",
                     "name": "l2buses0",
                     "path": "board.cache_hierarchy.l2buses0",
-                    "clk_domain": "board.clk_domain",
+                    "clk_domain": "board.cache_hierarchy.l2caches0.prefetcher.clk_domain",
                     "eventq_index": 0,
                     "forward_latency": 0,
                     "frontend_latency": 1,
@@ -1265,7 +1265,7 @@
                     "cxx_class": "gem5::CoherentXBar",
                     "name": "l2buses1",
                     "path": "board.cache_hierarchy.l2buses1",
-                    "clk_domain": "board.clk_domain",
+                    "clk_domain": "board.cache_hierarchy.l2caches0.prefetcher.clk_domain",
                     "eventq_index": 0,
                     "forward_latency": 0,
                     "frontend_latency": 1,
@@ -1332,28 +1332,7 @@
                         "0:18446744073709551615"
                     ],
                     "assoc": 8,
-                    "clk_domain": {
-                        "type": "SrcClockDomain",
-                        "cxx_class": "gem5::SrcClockDomain",
-                        "name": "clk_domain",
-                        "path": "board.cache_hierarchy.l2caches0.clk_domain",
-                        "clock": [
-                            250
-                        ],
-                        "domain_id": -1,
-                        "eventq_index": 0,
-                        "init_perf_level": 0,
-                        "voltage_domain": {
-                            "type": "VoltageDomain",
-                            "cxx_class": "gem5::VoltageDomain",
-                            "name": "voltage_domain",
-                            "path": "board.cache_hierarchy.l2caches0.clk_domain.voltage_domain",
-                            "eventq_index": 0,
-                            "voltage": [
-                                1.0
-                            ]
-                        }
-                    },
+                    "clk_domain": "board.cache_hierarchy.l2caches0.prefetcher.clk_domain",
                     "clusivity": "mostly_incl",
                     "compressor": null,
                     "data_latency": 8,
@@ -1384,7 +1363,28 @@
                         "path": "board.cache_hierarchy.l2caches0.prefetcher",
                         "block_size": 64,
                         "cache_snoop": false,
-                        "clk_domain": "board.cache_hierarchy.l2caches0.clk_domain",
+                        "clk_domain": {
+                            "type": "SrcClockDomain",
+                            "cxx_class": "gem5::SrcClockDomain",
+                            "name": "clk_domain",
+                            "path": "board.cache_hierarchy.l2caches0.prefetcher.clk_domain",
+                            "clock": [
+                                250
+                            ],
+                            "domain_id": -1,
+                            "eventq_index": 0,
+                            "init_perf_level": 0,
+                            "voltage_domain": {
+                                "type": "VoltageDomain",
+                                "cxx_class": "gem5::VoltageDomain",
+                                "name": "voltage_domain",
+                                "path": "board.cache_hierarchy.l2caches0.prefetcher.clk_domain.voltage_domain",
+                                "eventq_index": 0,
+                                "voltage": [
+                                    1.0
+                                ]
+                            }
+                        },
                         "confidence_counter_bits": 3,
                         "confidence_threshold": 50,
                         "degree": 4,
@@ -1462,7 +1462,7 @@
                         "path": "board.cache_hierarchy.l2caches0.tags",
                         "assoc": 8,
                         "block_size": 64,
-                        "clk_domain": "board.cache_hierarchy.l2caches0.clk_domain",
+                        "clk_domain": "board.cache_hierarchy.l2caches0.prefetcher.clk_domain",
                         "entry_size": 64,
                         "eventq_index": 0,
                         "indexing_policy": {
@@ -1521,7 +1521,7 @@
                         "0:18446744073709551615"
                     ],
                     "assoc": 8,
-                    "clk_domain": "board.cache_hierarchy.l2caches0.clk_domain",
+                    "clk_domain": "board.cache_hierarchy.l2caches0.prefetcher.clk_domain",
                     "clusivity": "mostly_incl",
                     "compressor": null,
                     "data_latency": 8,
@@ -1552,7 +1552,7 @@
                         "path": "board.cache_hierarchy.l2caches1.prefetcher",
                         "block_size": 64,
                         "cache_snoop": false,
-                        "clk_domain": "board.cache_hierarchy.l2caches0.clk_domain",
+                        "clk_domain": "board.cache_hierarchy.l2caches0.prefetcher.clk_domain",
                         "confidence_counter_bits": 3,
                         "confidence_threshold": 50,
                         "degree": 4,
@@ -1630,7 +1630,7 @@
                         "path": "board.cache_hierarchy.l2caches1.tags",
                         "assoc": 8,
                         "block_size": 64,
-                        "clk_domain": "board.cache_hierarchy.l2caches0.clk_domain",
+                        "clk_domain": "board.cache_hierarchy.l2caches0.prefetcher.clk_domain",
                         "entry_size": 64,
                         "eventq_index": 0,
                         "indexing_policy": {
@@ -1686,7 +1686,7 @@
                 "cxx_class": "gem5::CoherentXBar",
                 "name": "l3bus",
                 "path": "board.cache_hierarchy.l3bus",
-                "clk_domain": "board.clk_domain",
+                "clk_domain": "board.cache_hierarchy.l3cache.prefetcher.clk_domain",
                 "eventq_index": 0,
                 "forward_latency": 0,
                 "frontend_latency": 1,
@@ -1749,28 +1749,7 @@
                     "0:18446744073709551615"
                 ],
                 "assoc": 16,
-                "clk_domain": {
-                    "type": "SrcClockDomain",
-                    "cxx_class": "gem5::SrcClockDomain",
-                    "name": "clk_domain",
-                    "path": "board.cache_hierarchy.l3cache.clk_domain",
-                    "clock": [
-                        250
-                    ],
-                    "domain_id": -1,
-                    "eventq_index": 0,
-                    "init_perf_level": 0,
-                    "voltage_domain": {
-                        "type": "VoltageDomain",
-                        "cxx_class": "gem5::VoltageDomain",
-                        "name": "voltage_domain",
-                        "path": "board.cache_hierarchy.l3cache.clk_domain.voltage_domain",
-                        "eventq_index": 0,
-                        "voltage": [
-                            1.0
-                        ]
-                    }
-                },
+                "clk_domain": "board.cache_hierarchy.l3cache.prefetcher.clk_domain",
                 "clusivity": "mostly_incl",
                 "compressor": null,
                 "data_latency": 21,
@@ -1801,7 +1780,28 @@
                     "path": "board.cache_hierarchy.l3cache.prefetcher",
                     "block_size": 64,
                     "cache_snoop": false,
-                    "clk_domain": "board.cache_hierarchy.l3cache.clk_domain",
+                    "clk_domain": {
+                        "type": "SrcClockDomain",
+                        "cxx_class": "gem5::SrcClockDomain",
+                        "name": "clk_domain",
+                        "path": "board.cache_hierarchy.l3cache.prefetcher.clk_domain",
+                        "clock": [
+                            250
+                        ],
+                        "domain_id": -1,
+                        "eventq_index": 0,
+                        "init_perf_level": 0,
+                        "voltage_domain": {
+                            "type": "VoltageDomain",
+                            "cxx_class": "gem5::VoltageDomain",
+                            "name": "voltage_domain",
+                            "path": "board.cache_hierarchy.l3cache.prefetcher.clk_domain.voltage_domain",
+                            "eventq_index": 0,
+                            "voltage": [
+                                1.0
+                            ]
+                        }
+                    },
                     "confidence_counter_bits": 3,
                     "confidence_threshold": 50,
                     "degree": 4,
@@ -1879,7 +1879,7 @@
                     "path": "board.cache_hierarchy.l3cache.tags",
                     "assoc": 16,
                     "block_size": 64,
-                    "clk_domain": "board.cache_hierarchy.l3cache.clk_domain",
+                    "clk_domain": "board.cache_hierarchy.l3cache.prefetcher.clk_domain",
                     "entry_size": 64,
                     "eventq_index": 0,
                     "indexing_policy": {
@@ -2073,13 +2073,35 @@
             "path": "board.memory",
             "eventq_index": 0,
             "thermal_domain": null,
+            "clk_domain": {
+                "type": "SrcClockDomain",
+                "cxx_class": "gem5::SrcClockDomain",
+                "name": "clk_domain",
+                "path": "board.memory.clk_domain",
+                "clock": [
+                    500
+                ],
+                "domain_id": -1,
+                "eventq_index": 0,
+                "init_perf_level": 0,
+                "voltage_domain": {
+                    "type": "VoltageDomain",
+                    "cxx_class": "gem5::VoltageDomain",
+                    "name": "voltage_domain",
+                    "path": "board.memory.clk_domain.voltage_domain",
+                    "eventq_index": 0,
+                    "voltage": [
+                        1.0
+                    ]
+                }
+            },
             "mem_ctrl": [
                 {
                     "type": "MemCtrl",
                     "cxx_class": "gem5::memory::MemCtrl",
                     "name": "mem_ctrl",
                     "path": "board.memory.mem_ctrl",
-                    "clk_domain": "board.clk_domain",
+                    "clk_domain": "board.memory.clk_domain",
                     "command_window": 10000,
                     "disable_sanity_check": false,
                     "dram": {
