@@ -67,7 +67,7 @@ from components.cryomem.memory import SingleChannelDDR3_1600WithClockDomain
 
 requires(isa_required=ISA.RISCV)
 
-cache_hierarchy = CryoCache(l1d_clopk="4GHz", l1i_clock="3GHz", l2_clock="2GHz", l3_clock="100MHz")
+cache_hierarchy = CryoCache(l1d_clock="4GHz", l1i_clock="3GHz", l2_clock="2GHz", l3_clock="100MHz")
 
 memory = SingleChannelDDR3_1600WithClockDomain(size="32MB", clock="100GHz")
 
