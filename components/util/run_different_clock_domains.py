@@ -255,6 +255,19 @@ def run_different_clock_domains(config, workload, clock_freq):
             cache_hierarchy=cache_hierarchy,
         )
 
+    if config == "supercorecryocachecryomemory":
+        cache_hierarchy = CryoCache(l1d_clock="4GHz", l1i_clock="4GHz", l2_clock="4GHz", l3_clock="4GHz")
+
+        memory = SingleChannelDDR3_1600WithClockDomain(size="8GB", clock="4GHz")
+
+        processor = CryoProcessor(num_cores=2)
+
+        board = SimpleBoard(
+            clk_freq=clock_freq,
+            processor=processor,
+            memory=memory,
+            cache_hierarchy=cache_hierarchy,
+        )
 
     print(f"Running {workload.get_id()} on {config} configuration")
     board.set_workload(workload)
