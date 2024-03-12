@@ -68,4 +68,5 @@ class BasicCache(Cache):
         self.writeback_clean = writeback_clean
         self.clusivity = clusivity
         self.prefetcher = PrefetcherCls()
+        self.prefetcher.clk_domain = clk_domain
         self.clk_domain = clk_domain
