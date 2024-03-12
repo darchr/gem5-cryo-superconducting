@@ -51,6 +51,7 @@ def run_different_clock_domains(config, workload, clock_freq):
     from components.cryocore.cryocore import CryoProcessor
     from components.cryocache.private_l1_private_l2_shared_l3_cache_hierarchy import PrivateL1PrivateL2SharedL3CacheHierarchy
     from components.cryocache.cryocache import CryoCache
+    from components.cryomem.memory import SingleChannelDDR3_1600WithClockDomain
 
     if config=="cryocache":
         cache_hierarchy = CryoCache(l1d_clock="4GHz", l1i_clock="4GHz", l2_clock="4GHz", l3_clock="4GHz")
@@ -235,6 +236,20 @@ def run_different_clock_domains(config, workload, clock_freq):
 
         board = SimpleBoard(
             clk_freq="4GHz",
+            processor=processor,
+            memory=memory,
+            cache_hierarchy=cache_hierarchy,
+        )
+
+    if config == "supercorecryocachertmemory":
+        cache_hierarchy = CryoCache(l1d_clock="4GHz", l1i_clock="4GHz", l2_clock="4GHz", l3_clock="4GHz")
+
+        memory = SingleChannelDDR3_1600WithClockDomain(size="8GB", clock="2GHz")
+
+        processor = CryoProcessor(num_cores=2)
+
+        board = SimpleBoard(
+            clk_freq=clock_freq,
             processor=processor,
             memory=memory,
             cache_hierarchy=cache_hierarchy,
