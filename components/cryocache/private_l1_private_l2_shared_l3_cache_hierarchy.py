@@ -45,7 +45,6 @@ from gem5.components.cachehierarchies.classic.caches.l1dcache import L1DCache
 from gem5.components.cachehierarchies.classic.caches.l1icache import L1ICache
 from gem5.components.cachehierarchies.classic.caches.l2cache import L2Cache
 from gem5.components.cachehierarchies.classic.caches.mmu_cache import MMUCache
-from components.cryocache.cache import BasicCache
 
 class PrivateL1PrivateL2SharedL3CacheHierarchy(
     AbstractClassicCacheHierarchy, AbstractThreeLevelCacheHierarchy
@@ -158,17 +157,18 @@ class PrivateL1PrivateL2SharedL3CacheHierarchy(
 
         if self._l1i_clock is not None:
             self.l1icaches = [
-                BasicCache(
+                L1ICache(
                     size=self._l1i_size,
                     assoc=self._l1i_assoc,
                     data_latency=self._l1i_data_latency,
-                    clk_domain=self._l1i_clock
                 )
                 for i in range(board.get_processor().get_num_cores())
             ]
+            for i in range(board.get_processor().get_num_cores()):
+                self.l1icaches[i].clk_domain = self._l1i_clock
         else:
             self.l1icaches = [
-                BasicCache(
+                L1ICache(
                     size=self._l1i_size,
                     assoc=self._l1i_assoc,
                     data_latency=self._l1i_data_latency
@@ -178,17 +178,18 @@ class PrivateL1PrivateL2SharedL3CacheHierarchy(
         
         if self._l1d_clock is not None:
             self.l1dcaches = [
-                BasicCache(
+                L1DCache(
                     size=self._l1d_size,
                     assoc=self._l1d_assoc,
                     data_latency=self._l1d_data_latency,
-                    clk_domain=self._l1d_clock
                 )
                 for i in range(board.get_processor().get_num_cores())
             ]
+            for i in range(board.get_processor().get_num_cores()):
+                self.l1dcaches[i].clk_domain = self._l1d_clock
         else:
             self.l1dcaches = [
-                BasicCache(
+                L1DCache(
                     size=self._l1d_size,
                     assoc=self._l1d_assoc,
                     data_latency=self._l1d_data_latency
@@ -198,11 +199,10 @@ class PrivateL1PrivateL2SharedL3CacheHierarchy(
 
         if self._l2_clock is not None:
             self.l2caches = [
-                BasicCache(
+                L2Cache(
                     size=self._l2_size,
                     assoc=self._l2_assoc,
                     data_latency=self._l2_data_latency,
-                    clk_domain=self._l2_clock
                 )
                 for i in range(board.get_processor().get_num_cores())
             ]
@@ -210,10 +210,11 @@ class PrivateL1PrivateL2SharedL3CacheHierarchy(
                 L2XBar() for i in range(board.get_processor().get_num_cores())
             ]
             for i in range(board.get_processor().get_num_cores()):
+                self.l2caches[i].clk_domain = self._l2_clock
                 self.l2buses[i].clk_domain = self._l2_clock
         else:
             self.l2caches = [
-                BasicCache(
+                L2Cache(
                     size=self._l2_size,
                     assoc=self._l2_assoc,
                     data_latency=self._l2_data_latency
@@ -225,16 +226,16 @@ class PrivateL1PrivateL2SharedL3CacheHierarchy(
             ]
 
         if self._l3_clock is not None:
-            self.l3cache = BasicCache(
+            self.l3cache = L2Cache(
                 size=self._l3_size,
                 assoc=self._l3_assoc,
                 data_latency=self._l3_data_latency,
-                clk_domain=self._l3_clock
             )
             self.l3bus = L2XBar()
+            self.l3cache.clk_domain = self._l3_clock
             self.l3bus.clk_domain = self._l3_clock
         else:
-            self.l3cache = BasicCache(
+            self.l3cache = L2Cache(
                 size=self._l3_size,
                 assoc=self._l3_assoc,
                 data_latency=self._l3_data_latency
