@@ -214,6 +214,17 @@ def run_different_clock_domains(config, workload, clock_freq):
             l3_clock=clock_freq,
         )
 
+        memory = SingleChannelDDR3_1600WithClockDomain(size="8GB", clock=clock_freq)
+
+        processor = CryoProcessor(num_cores=2)
+
+        board = SimpleBoard(
+            clk_freq="4GHz",
+            processor=processor,
+            memory=memory,
+            cache_hierarchy=cache_hierarchy,
+        )
+
     if config == "cryocorel1l2":
         cache_hierarchy = PrivateL1PrivateL2SharedL3CacheHierarchy(
             l1d_size="32kB",
