@@ -31,6 +31,8 @@ from m5.objects import (
     BaseMMU,
     Port,
     Process,
+    SrcClockDomain,
+    VoltageDomain,
 )
 from m5.objects.BaseMinorCPU import *
 from m5.objects.RiscvCPU import RiscvO3CPU
@@ -212,10 +214,15 @@ class CryoProcessor(BaseCPUProcessor):
     def __init__(
         self,
         num_cores: int = 1,
+        clock: str = "4GHz"
     ) -> None:
         self._cpu_type = CPUTypes.O3
         self._num_cores = num_cores
+        self._clock = clock
         super().__init__(cores=self._create_cores())
 
     def _create_cores(self):
-        return [CryoCore(core_id=i) for i in range(self._num_cores)]
+        cores = [CryoCore(core_id=i) for i in range(self._num_cores)]
+        for core in cores:
+            core.clk_domain = SrcClockDomain(clock=self._clock, voltage_domain=VoltageDomain())
+        return cores
