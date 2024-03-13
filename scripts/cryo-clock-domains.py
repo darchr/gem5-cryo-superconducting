@@ -25,10 +25,8 @@
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 """
-This gem5 configuation script creates a simple board to run a RISC-V
-"hello world" binary using a processor model that implements the
-CryoCore described in the paper "CryoCore: A Fast and Dense Processor 
-Architecture for Cryogenic Computing" by Byun, et al. (ISCA 2020).
+This gem5 configuation script demonstrates how to create a simple system with 
+different clock domains for the processor and cache.
 
 
 Usage
@@ -38,7 +36,7 @@ Usage
 cd gem5
 scons build/RISCV/gem5.opt
 cd ..
-./gem5/build/RISCV/gem5.opt scripts/cryocore-hello.py
+./gem5/build/RISCV/gem5.opt scripts/cryo-clock-domains.py
 ```
 """
 
@@ -62,16 +60,15 @@ sys.path.append(str(here.parent))
 
 from components.cryocore.cryocore import CryoProcessor
 from components.cryocache.cryocache import CryoCache
-from components.cryomem.memory import SingleChannelDDR3_1600WithClockDomain
 
 
 requires(isa_required=ISA.RISCV)
 
 cache_hierarchy = CryoCache(l1d_clock="4GHz", l1i_clock="3GHz", l2_clock="2GHz", l3_clock="100MHz")
 
-memory = SingleChannelDDR3_1600WithClockDomain(size="32MB", clock="100GHz")
+memory = SingleChannelDDR3_1600(size="32MB")
 
-processor =  CryoProcessor(num_cores=1)
+processor =  CryoProcessor(num_cores=1, clock="4GHz")
 
 board = SimpleBoard(
     clk_freq="1GHz",
