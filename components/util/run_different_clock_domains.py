@@ -53,255 +53,29 @@ def run_different_clock_domains(config, workload, clock_freq):
     from components.cryocache.cryocache import CryoCache
     from components.cryomem.memory import SingleChannelDDR3_1600WithClockDomain
 
-    if config=="cryocache":
+    if config == "superconductingcorecryocache":
         cache_hierarchy = CryoCache(l1d_clock="4GHz", l1i_clock="4GHz", l2_clock="4GHz", l3_clock="4GHz")
 
         memory = SingleChannelDDR3_1600(size="8GB")
 
-        processor = CryoProcessor(num_cores=2)
+        processor = CryoProcessor(num_cores=2, clock=clock_freq)
 
         board = SimpleBoard(
-            clk_freq=clock_freq,
+            clk_freq="1GHz",
             processor=processor,
             memory=memory,
             cache_hierarchy=cache_hierarchy,
         )
 
-    if config=="cryol2l3":
-        cache_hierarchy = CryoCache(l2_clock="4GHz", l3_clock="4GHz")
+    if config == "superconductingcoresuperl1cryol2l3":
+        cache_hierarchy = CryoCache(l1d_clock=clock_freq, l1i_clock=clock_freq, l2_clock="4GHz", l3_clock="4GHz")
 
         memory = SingleChannelDDR3_1600(size="8GB")
 
-        processor = CryoProcessor(num_cores=2)
+        processor = CryoProcessor(num_cores=2, clock=clock_freq)
 
         board = SimpleBoard(
-            clk_freq=clock_freq,
-            processor=processor,
-            memory=memory,
-            cache_hierarchy=cache_hierarchy,
-        )
-
-    if config=="cryol3":
-        cache_hierarchy = CryoCache(l3_clock="4GHz")
-
-        memory = SingleChannelDDR3_1600(size="8GB")
-
-        processor = CryoProcessor(num_cores=2)
-
-        board = SimpleBoard(
-            clk_freq=clock_freq,
-            processor=processor,
-            memory=memory,
-            cache_hierarchy=cache_hierarchy,
-        )
-
-    if config == "rtcache":
-        cache_hierarchy = PrivateL1PrivateL2SharedL3CacheHierarchy(
-            l1d_size="32kB",
-            l1d_assoc=8,
-            l1i_size="32kB",
-            l1i_assoc=8,
-            l2_size="256kB",
-            l2_assoc=8,
-            l3_size="8MB",
-            l3_assoc=16,
-            l1d_clock="2GHz",
-            l1i_clock="2GHz",
-            l2_clock="2GHz",
-            l3_clock="2GHz",
-        )
-
-        memory = SingleChannelDDR3_1600(size="8GB")
-
-        processor = CryoProcessor(num_cores=2)
-
-        board = SimpleBoard(
-            clk_freq=clock_freq,
-            processor=processor,
-            memory=memory,
-            cache_hierarchy=cache_hierarchy,
-        )
-
-    if config == "rtl2l3":
-        cache_hierarchy = PrivateL1PrivateL2SharedL3CacheHierarchy(
-            l1d_size="32kB",
-            l1d_assoc=8,
-            l1i_size="32kB",
-            l1i_assoc=8,
-            l2_size="256kB",
-            l2_assoc=8,
-            l3_size="8MB",
-            l3_assoc=16,
-            l2_clock="2GHz",
-            l3_clock="2GHz",
-        )
-
-        memory = SingleChannelDDR3_1600(size="8GB")
-
-        processor = CryoProcessor(num_cores=2)
-
-        board = SimpleBoard(
-            clk_freq=clock_freq,
-            processor=processor,
-            memory=memory,
-            cache_hierarchy=cache_hierarchy,
-        )
-    
-    if config == "rtl3":
-        cache_hierarchy = PrivateL1PrivateL2SharedL3CacheHierarchy(
-            l1d_size="32kB",
-            l1d_assoc=8,
-            l1i_size="32kB",
-            l1i_assoc=8,
-            l2_size="256kB",
-            l2_assoc=8,
-            l3_size="8MB",
-            l3_assoc=16,
-            l3_clock="2GHz",
-        )
-
-        memory = SingleChannelDDR3_1600(size="8GB")
-
-        processor = CryoProcessor(num_cores=2)
-
-        board = SimpleBoard(
-            clk_freq=clock_freq,
-            processor=processor,
-            memory=memory,
-            cache_hierarchy=cache_hierarchy,
-        )
-    
-    if config == "cryocore":
-        cache_hierarchy = PrivateL1PrivateL2SharedL3CacheHierarchy(
-            l1d_size="32kB",
-            l1d_assoc=8,
-            l1i_size="32kB",
-            l1i_assoc=8,
-            l2_size="256kB",
-            l2_assoc=8,
-            l3_size="8MB",
-            l3_assoc=16,
-            l1d_clock=clock_freq,
-            l1i_clock=clock_freq,
-            l2_clock=clock_freq,
-            l3_clock=clock_freq,
-        )
-
-        memory = SingleChannelDDR3_1600(size="8GB")
-
-        processor = CryoProcessor(num_cores=2)
-
-        board = SimpleBoard(
-            clk_freq="4GHz",
-            processor=processor,
-            memory=memory,
-            cache_hierarchy=cache_hierarchy,
-        )
-
-    if config == "cryocorel1":
-        cache_hierarchy = PrivateL1PrivateL2SharedL3CacheHierarchy(
-            l1d_size="32kB",
-            l1d_assoc=8,
-            l1i_size="32kB",
-            l1i_assoc=8,
-            l2_size="256kB",
-            l2_assoc=8,
-            l3_size="8MB",
-            l3_assoc=16,
-            l1d_clock="4GHz",
-            l1i_clock="4GHz",
-            l2_clock=clock_freq,
-            l3_clock=clock_freq,
-        )
-
-        memory = SingleChannelDDR3_1600WithClockDomain(size="8GB", clock=clock_freq)
-
-        processor = CryoProcessor(num_cores=2)
-
-        board = SimpleBoard(
-            clk_freq="4GHz",
-            processor=processor,
-            memory=memory,
-            cache_hierarchy=cache_hierarchy,
-        )
-
-    if config == "cryocorel1l2":
-        cache_hierarchy = PrivateL1PrivateL2SharedL3CacheHierarchy(
-            l1d_size="32kB",
-            l1d_assoc=8,
-            l1i_size="32kB",
-            l1i_assoc=8,
-            l2_size="256kB",
-            l2_assoc=8,
-            l3_size="8MB",
-            l3_assoc=16,
-            l1d_clock="4GHz",
-            l1i_clock="4GHz",
-            l2_clock="4GHz",
-            l3_clock=clock_freq,
-        )
-
-        memory = SingleChannelDDR3_1600WithClockDomain(size="8GB", clock=clock_freq)
-
-        processor = CryoProcessor(num_cores=2)
-
-        board = SimpleBoard(
-            clk_freq="4GHz",
-            processor=processor,
-            memory=memory,
-            cache_hierarchy=cache_hierarchy,
-        )
-
-    if config == "supercorecryocachertmemory":
-        cache_hierarchy = CryoCache(l1d_clock="4GHz", l1i_clock="4GHz", l2_clock="4GHz", l3_clock="4GHz")
-
-        memory = SingleChannelDDR3_1600WithClockDomain(size="8GB", clock="2GHz")
-
-        processor = CryoProcessor(num_cores=2)
-
-        board = SimpleBoard(
-            clk_freq=clock_freq,
-            processor=processor,
-            memory=memory,
-            cache_hierarchy=cache_hierarchy,
-        )
-
-    if config == "supercorecryocachecryomemory":
-        cache_hierarchy = CryoCache(l1d_clock="4GHz", l1i_clock="4GHz", l2_clock="4GHz", l3_clock="4GHz")
-
-        memory = SingleChannelDDR3_1600WithClockDomain(size="8GB", clock="4GHz")
-
-        processor = CryoProcessor(num_cores=2)
-
-        board = SimpleBoard(
-            clk_freq=clock_freq,
-            processor=processor,
-            memory=memory,
-            cache_hierarchy=cache_hierarchy,
-        )
-
-    if config == "rtcoresupercachesupermemory":
-        cache_hierarchy = PrivateL1PrivateL2SharedL3CacheHierarchy(
-            l1d_size="32kB",
-            l1d_assoc=8,
-            l1i_size="32kB",
-            l1i_assoc=8,
-            l2_size="256kB",
-            l2_assoc=8,
-            l3_size="8MB",
-            l3_assoc=16,
-            l1d_clock=clock_freq,
-            l1i_clock=clock_freq,
-            l2_clock=clock_freq,
-            l3_clock=clock_freq,
-        )
-
-        memory = SingleChannelDDR3_1600WithClockDomain(size="8GB", clock=clock_freq)
-
-        processor = CryoProcessor(num_cores=2)
-
-        board = SimpleBoard(
-            clk_freq="2GHz",
+            clk_freq="1GHz",
             processor=processor,
             memory=memory,
             cache_hierarchy=cache_hierarchy,
