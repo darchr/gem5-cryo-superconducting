@@ -109,6 +109,20 @@ def run_different_clock_domains(config, workload, clock_freq):
             cache_hierarchy=cache_hierarchy,
         )
 
+    if config == "superconductingeverything":
+        cache_hierarchy = CryoCache(l1d_clock=clock_freq, l1i_clock=clock_freq, l2_clock=clock_freq, l3_clock=clock_freq)
+
+        memory = SingleChannelDDR3_1600(size="8GB")
+
+        processor = CryoProcessor(num_cores=2, clock=clock_freq)
+
+        board = SimpleBoard(
+            clk_freq=clock_freq,
+            processor=processor,
+            memory=memory,
+            cache_hierarchy=cache_hierarchy,
+        )
+
     print(f"Running {workload.get_id()} on {config} configuration")
     board.set_workload(workload)
     
