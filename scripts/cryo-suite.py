@@ -72,7 +72,9 @@ from components.util.run_binary import run_binary
 from components.util.run_different_clock_domains import run_different_clock_domains
 
 argparser = argparse.ArgumentParser()
-argparser.add_argument("--config", type=str, default="default", help="Configuration to run")
+argparser.add_argument("--config", type=str, default="superconductingcorecryocache", help="Configuration to run", 
+    choices=["superconductingcorecryocache", "superconductingcoresuperl1cryol2l3", "superconductingcoresuperl1superl2cryol3", "superconductingcorel1l2l3", "superconductingeverything"])
+
 argparser.add_argument("--clk_freq", type=str, default="4GHz", help="Clock frequency")
 
 # construct the board depending on the argparser
