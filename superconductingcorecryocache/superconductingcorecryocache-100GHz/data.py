@@ -1,6 +1,7 @@
 import os
 import pandas as pd
 import numpy as np
+import argparse
 
 
 # list all the folders in the directory
@@ -20,10 +21,18 @@ def process_data(folders):
                 cycle = None
                 instret = None
                 seconds = None
-                l1dAccesses = None
-                l1iAccesses = None
-                l2Accesses = None
-                l3Accesses = None
+                l1dAccesses = 0
+                l1iAccesses = 0
+                l2Accesses = 0
+                l3Accesses = 0
+                l1dmisses = 0
+                l1imisses = 0
+                l2misses = 0
+                l3misses = 0
+                l1dhits = 0
+                l1ihits = 0
+                l2hits = 0
+                l3hits = 0
                 microbench_name = folder.split('.')[0]
                 lines = f.readlines()
                 for line in lines:
@@ -40,22 +49,45 @@ def process_data(folders):
                         print(line)
                         if seconds is None:
                             seconds = line.split()[1]
-                    if "board.cache_hierarchy.l1dcaches0.overallAccesses::total" in line:
+                    if "board.cache_hierarchy.l1dcaches0.overallAccesses::total" in line or "board.cache_hierarchy.l1dcaches1.overallAccesses::total" in line:
                         print(line)
-                        if l1dAccesses is None:
-                            l1dAccesses = line.split()[1]
-                    if "board.cache_hierarchy.l1icaches0.overallAccesses::total" in line:
+                        print(line.split())
+                        l1dAccesses += int(line.split()[1]) 
+                    if "board.cache_hierarchy.l1icaches0.overallAccesses::total" in line or "board.cache_hierarchy.l1icaches1.overallAccesses::total" in line:
                         print(line)
-                        if l1iAccesses is None:
-                            l1iAccesses = line.split()[1]
-                    if "board.cache_hierarchy.l2caches0.overallAccesses::total" in line:
+                        l1iAccesses += int(line.split()[1])
+                    if "board.cache_hierarchy.l2caches0.overallAccesses::total" in line or "board.cache_hierarchy.l2caches1.overallAccesses::total" in line:
                         print(line)
-                        if l2Accesses is None:
-                            l2Accesses = line.split()[1]
+                        print(line.split())
+                        l2Accesses += int(line.split()[1])
                     if "board.cache_hierarchy.l3cache.overallAccesses::total" in line:
                         print(line)
-                        if l3Accesses is None:
-                            l3Accesses = line.split()[1]
+                        l3Accesses += int(line.split()[1])
+                    if "board.cache_hierarchy.l1dcaches0.overallMisses::total" in line or "board.cache_hierarchy.l1dcaches1.overallMisses::total" in line:
+                        print(line)
+                        l1dmisses += int(line.split()[1])
+                    if "board.cache_hierarchy.l1icaches0.overallMisses::total" in line or "board.cache_hierarchy.l1icaches1.overallMisses::total" in line:
+                        print(line)
+                        l1imisses += int(line.split()[1])
+                    if "board.cache_hierarchy.l2caches0.overallMisses::total" in line or "board.cache_hierarchy.l2caches1.overallMisses::total" in line:
+                        print(line)
+                        l2misses += int(line.split()[1])
+                    if "board.cache_hierarchy.l3cache.overallMisses::total" in line:
+                        print(line)
+                        l3misses += int(line.split()[1])
+
+                    if "board.cache_hierarchy.l1dcaches0.overallHits::total" in line or "board.cache_hierarchy.l1dcaches1.overallHits::total" in line:
+                        print(line)
+                        l1dhits += int(line.split()[1])
+                    if "board.cache_hierarchy.l1icaches0.overallHits::total" in line or "board.cache_hierarchy.l1icaches1.overallHits::total" in line:
+                        print(line)
+                        l1ihits += int(line.split()[1])
+                    if "board.cache_hierarchy.l2caches0.overallHits::total" in line or "board.cache_hierarchy.l2caches1.overallHits::total" in line:
+                        print(line)
+                        l2hits += int(line.split()[1])
+                    if "board.cache_hierarchy.l3cache.overallHits::total" in line:
+                        print(line)
+                        l3hits += int(line.split()[1])
                 try:
                     microbench_data[microbench_name] = {
                         'Cycles': cycle,
@@ -66,6 +98,14 @@ def process_data(folders):
                         'l1iAccesses' : l1iAccesses,
                         'l2Accesses' : l2Accesses,
                         'l3Accesses' : l3Accesses,
+                        'l1dmisses' : l1dmisses,
+                        'l1imisses' : l1imisses,
+                        'l2misses' : l2misses,
+                        'l3misses' : l3misses,
+                        'l1dhits' : l1dhits,
+                        'l1ihits' : l1ihits,
+                        'l2hits' : l2hits,
+                        'l3hits' : l3hits,
                     }
                 except Exception as e:
                     print("Error in file: ", file)
@@ -73,5 +113,15 @@ def process_data(folders):
                     pass
     return microbench_data
 
-df = pd.DataFrame.from_dict(process_data(list_folders('.')), orient='index')
-df.to_csv('100GHz.csv')
+# df = pd.DataFrame.from_dict(process_data(list_folders('.')), orient='index')
+
+args = argparse.ArgumentParser()
+args.add_argument('--frequency', type=int, default=4)
+args.add_argument('--folder', type=str, default='.')
+args = args.parse_args()
+os.system(f'cd superconductingcorecryocache-{args.frequency}GHz')
+df = pd.DataFrame.from_dict(process_data(list_folders(args.folder)), orient='index')
+df.to_csv(f'{args.frequency}GHz.csv')
+
+# # move to data folder
+# os.system(f'mv {args.frequency}GHz.csv ./data/')

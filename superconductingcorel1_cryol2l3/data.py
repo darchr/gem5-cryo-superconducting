@@ -33,6 +33,7 @@ def process_data(folders):
                 l1ihits = 0
                 l2hits = 0
                 l3hits = 0
+                lsq = 0
                 microbench_name = folder.split('.')[0]
                 lines = f.readlines()
                 for line in lines:
@@ -88,6 +89,10 @@ def process_data(folders):
                     if "board.cache_hierarchy.l3cache.overallHits::total" in line:
                         print(line)
                         l3hits += int(line.split()[1])
+
+                    if "board.processor.cores0.core.iew.lsqFullEvents" in line or "board.processor.cores1.core.iew.lsqFullEvents" in line:
+                        print(line)
+                        lsq += int(line.split()[1])
                 try:
                     microbench_data[microbench_name] = {
                         'Cycles': cycle,
@@ -106,6 +111,7 @@ def process_data(folders):
                         'l1ihits' : l1ihits,
                         'l2hits' : l2hits,
                         'l3hits' : l3hits,
+                        'lsqFullEvents' : lsq
                     }
                 except Exception as e:
                     print("Error in file: ", file)
@@ -117,10 +123,13 @@ def process_data(folders):
 
 args = argparse.ArgumentParser()
 args.add_argument('--frequency', type=int, default=4)
-args.add_argument('--folder', type=str, default='.')
+# args.add_argument('--folder', type=str, default='.')
 args = args.parse_args()
-df = pd.DataFrame.from_dict(process_data(list_folders(args.folder)), orient='index')
+# print(os.getcwd())
+# os.system(f'cd superconductingcorecryocache-{args.frequency}GHz')
+os.chdir(f'superconductingcoresuperl1cryol2l3-{args.frequency}GHz')
+df = pd.DataFrame.from_dict(process_data(list_folders(os.getcwd())), orient='index')
 df.to_csv(f'{args.frequency}GHz.csv')
 
 # # move to data folder
-# os.system(f'mv {args.frequency}GHz.csv ./data/')
+os.system(f'mv {args.frequency}GHz.csv ../data/')
