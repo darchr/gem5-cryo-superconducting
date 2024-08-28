@@ -49,9 +49,9 @@ def run_different_clock_domains(config, workload, clock_freq):
     sys.path.append(str(here.parent))
 
     from components.cryocore.cryocore import CryoProcessor
+    from components.cryocore.in_order_cryocore import CryoInOrderProcessor
     from components.cryocache.private_l1_private_l2_shared_l3_cache_hierarchy import PrivateL1PrivateL2SharedL3CacheHierarchy
     from components.cryocache.cryocache import CryoCache
-    from components.cryomem.memory import SingleChannelDDR3_1600WithClockDomain
 
     if config == "superconductingcorecryocache":
         cache_hierarchy = CryoCache(l1d_clock="4GHz", l1i_clock="4GHz", l2_clock="4GHz", l3_clock="4GHz")
@@ -59,6 +59,20 @@ def run_different_clock_domains(config, workload, clock_freq):
         memory = SingleChannelDDR3_1600(size="8GB")
 
         processor = CryoProcessor(num_cores=2, clock=clock_freq)
+
+        board = SimpleBoard(
+            clk_freq="1GHz",
+            processor=processor,
+            memory=memory,
+            cache_hierarchy=cache_hierarchy,
+        )
+    
+    if config == "cryocorecryocache":
+        cache_hierarchy = CryoCache(l1d_clock="4GHz", l1i_clock="4GHz", l2_clock="4GHz", l3_clock="4GHz")
+
+        memory = SingleChannelDDR3_1600(size="8GB")
+
+        processor = CryoProcessor(num_cores=2, clock="4GHz")
 
         board = SimpleBoard(
             clk_freq="1GHz",
@@ -122,6 +136,50 @@ def run_different_clock_domains(config, workload, clock_freq):
             memory=memory,
             cache_hierarchy=cache_hierarchy,
         )
+
+    if config == "cryoinordercorecryocache":
+        cache_hierarchy = CryoCache(l1d_clock="4GHz", l1i_clock="4GHz", l2_clock="4GHz", l3_clock="4GHz")
+
+        memory = SingleChannelDDR3_1600(size="8GB")
+
+        processor = CryoInOrderProcessor(num_cores=2, clock="4GHz")
+
+        board = SimpleBoard(
+            clk_freq="1GHz",
+            processor=processor,
+            memory=memory,
+            cache_hierarchy=cache_hierarchy,
+        )
+
+    if config == "superinordercoresupercache":
+        cache_hierarchy = CryoCache(l1d_clock=clock_freq, l1i_clock=clock_freq, l2_clock=clock_freq, l3_clock=clock_freq)
+
+        memory = SingleChannelDDR3_1600(size="8GB")
+
+        processor = CryoInOrderProcessor(num_cores=2, clock=clock_freq)
+
+        board = SimpleBoard(
+            clk_freq=clock_freq,
+            processor=processor,
+            memory=memory,
+            cache_hierarchy=cache_hierarchy,
+        )
+
+    if config == "superinordercorecryocache":
+        cache_hierarchy = CryoCache(l1d_clock="4GHz", l1i_clock="4GHz", l2_clock="4GHz", l3_clock="4GHz")
+
+        memory = SingleChannelDDR3_1600(size="8GB")
+
+        processor = CryoInOrderProcessor(num_cores=2, clock=clock_freq)
+
+        board = SimpleBoard(
+            clk_freq="1GHz",
+            processor=processor,
+            memory=memory,
+            cache_hierarchy=cache_hierarchy,
+        )
+
+
 
     print(f"Running {workload.get_id()} on {config} configuration")
     board.set_workload(workload)
