@@ -111,3 +111,18 @@ The plots are in Python notebooks inside these directories.
 - `gem5/`: Contains the gem5 source code.
 - `getting_started_riscv.json`: Contains the metadata for the workloads used in our experiment.
 - `README.md`: Contains the documentation for the repository.
+
+## Citation
+If you use this repository in your research, please cite the following paper:
+
+```
+@misc{pai2024potentiallimitationhighfrequencycores,
+      title={Potential and Limitation of High-Frequency Cores and Caches}, 
+      author={Kunal Pai and Anusheel Nand and Jason Lowe-Power},
+      year={2024},
+      eprint={2408.03308},
+      archivePrefix={arXiv},
+      primaryClass={cs.AR},
+      url={https://arxiv.org/abs/2408.03308}, 
+}
+```
