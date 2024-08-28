@@ -3,3 +3,13 @@ m5out/
 __pycache__/
 nohup*
 *.sh
+.log
+.synctex.gz
+.fdb_latexmk
+.bbl
+.pdf
+.aux
+.blg
+.bcf
+.run.xml
+.out
