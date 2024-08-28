@@ -15,4 +15,6 @@ They mean the following:
   - `superconductingeverything`: The core, L1, L2 and L3 caches and the board are in the superconducting clock domain.
     The memory is at its default frequency of 800 MHz.
 
-The plots can be seen in `plots.ipynb` in each of the directories for the configurations.
+There are also in-order and out-of-order configurations for these configurations.
+
+The plots can be seen in `plots.ipynb`.
