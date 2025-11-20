@@ -1,7 +1,7 @@
-# Cryogenic Computing and Superconducting Circuits with gem5
+# Cryogenic Semiconductors and Superconducting Electronics with gem5
 
 This repository contains the gem5 models for cryogenic components.
-The repository is a part of the project to model cryogenic computing and superconducting circuits in gem5.
+The repository is a part of the project to model cryogenic CMOS and superconducting electronics in gem5.
 
 The cryogenic cache has been adapted from the [CryoCache: A fast, large, and cost-effective cache architecture for cryogenic computing](https://dl.acm.org/doi/pdf/10.1145/3373376.3378513) paper by Min et al.
 
@@ -113,7 +113,7 @@ The plots are in Python notebooks inside these directories.
 - `README.md`: Contains the documentation for the repository.
 
 ## Citation
-If you use this repository in your research, please cite the following paper:
+If you use this repository in your research, please cite the following papers:
 
 ```
 @misc{pai2024potentiallimitationhighfrequencycores,
@@ -124,5 +124,14 @@ If you use this repository in your research, please cite the following paper:
       archivePrefix={arXiv},
       primaryClass={cs.AR},
       url={https://arxiv.org/abs/2408.03308}, 
+}
+```
+```
+@inproceedings{pai2025implications,
+  title={Implications of Full-System Modeling for Superconducting Architectures},
+  author={Pai, Kunal and Samani, Mahyar and Nand, Anusheel and Lowe-Power, Jason},
+  booktitle={Proceedings of the SC'25 Workshops of the International Conference for High Performance Computing, Networking, Storage and Analysis},
+  pages={1484--1490},
+  year={2025}
 }
 ```
